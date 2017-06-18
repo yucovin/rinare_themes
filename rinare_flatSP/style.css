@@ -106,6 +106,7 @@ body { font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", V
 #content .post .entryHeader h1, #content .post .entryFooter h1 { font-size: 1.8rem; }
 #content .post .entryHeader h1 a, #content .post .entryFooter h1 a { color: #6f3712; }
 #content .post .fbpLike { width: 300px; margin: 0 auto 20px auto; color: #646464; font-size: 1.4rem; text-align: center; }
+#content .post .fbpLike .fb-page { margin-left: -20px; }
 #content .post .relation { margin: 40px 0 0 0; }
 #content .post .relation h1 { position: relative; background-color: #9fd882; font-size: 1.4rem; color: #FFFFE4; margin: 0 0 15px 0; padding: 7px 0 7px 10px; width: 270px; }
 #content .post .relation h1:after { content: ""; position: absolute; top: 0; right: -33px; height: 0; width: 0; border: 18px solid #9fd882; border-right-color: transparent; }

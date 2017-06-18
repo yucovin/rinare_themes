@@ -32,7 +32,10 @@ Template Name: snslist
 					</div>
 					
 					<!-- Facebook like -->
-					<div class="fbpLike"><div class="fb-like" data-href="https://www.facebook.com/rinare.yucovin" data-width="300" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div></div>
+					<div class="fbpLike">
+						このブログがお役に立ったり楽しんでもらえたら「いいね！」お願いします(๑⁰ 〰⁰)<br>
+						<div class="fb-page" data-href="https://www.facebook.com/rinare.yucovin/" data-width="300" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/rinare.yucovin/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/rinare.yucovin/">もっと知りたいリンゴあれこれ（ユコびん）</a></blockquote></div>
+					</div>
 					<!-- entryTailAd -->
 					<div class="ad300"><?php echo do_shortcode('[gAd_300entry]'); ?></div>
 					
