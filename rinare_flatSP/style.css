@@ -1,0 +1,415 @@
+@charset "UTF-8";
+/*
+Theme name: rinare flat cute for smartphone
+Theme URI: http://rinare.com/
+Author: yuco vincent(sakuma nino)
+Author; URI: http://rinare.com/
+Description: smartphone theme / flat cute style for "motto siritai ringo arekore" Apple blog
+Version: 1.0
+*/
+/* clearfix */
+/* For modern browsers */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+
+.clearfix:after { clear: both; }
+
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix { zoom: 1; }
+
+/* リストの余白とマージンをゼロ */
+ul, ol, dl { padding: 0; margin: 0; }
+
+ul, li { list-style-type: none; }
+
+h1, h2, h3, h4, h5, h6, p { margin-top: 0; /* 上マージンを削除することで、マージンを含む div からマージンがはみ出す場合があるという問題を回避。下マージンをとれば、後続のエレメントからは離される。 */ margin-bottom: 0; padding-right: 0; padding-left: 0; }
+
+p { line-height: 1.7em; margin-bottom: 0; /* wordpressの標準だと24pxらしい */ }
+
+/* Delete blue line of img link */
+a img { border: none; }
+
+/* img下に隙間ができるので回避 */
+img { vertical-align: bottom; }
+
+a:link { color: #26aeb3; text-decoration: none; }
+
+a:visited { color: #7852b5; }
+
+a:hover, a:active, a:focus { color: #ff7b6c; }
+
+/* jetpackの統計用img */
+img#wpstats { display: none; }
+
+html { font-size: 62.5%; }
+
+/*←ルートで10px基準サイズを決定*/
+body { font-size: 1.5rem; }
+
+/*←BODY全体1.5倍(15px相当)のサイズを相対指定*/
+body { font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; margin: 0; padding: 0; color: #6f3712; background-color: #abe9e1; -webkit-text-size-adjust: 100%; }
+
+#container { max-width: 550px; min-width: 320px; background-color: #F4632F; margin: 0 auto; background-color: #92DDD0; }
+
+#header { background-color: #F4632F; padding: 0 0 5px 0; }
+#header img { width: 100%; height: auto; }
+#header #catchphrase { text-align: center; font-size: 1.0rem; color: #e0f5f2; }
+
+#titleImage { background-color: #F9F8CD; margin-bottom: 10px; }
+#titleImage img { width: 100%; height: auto; }
+
+#navigation #navbar { margin: 10px 0; width: 100%; }
+#navigation #navbar:after { clear: both; }
+#navigation #navbar ul:after { clear: both; }
+#navigation #navbar li { float: left; width: 20%; height: 50px; background-color: #FFFFE4; }
+#navigation #navbar li a { display: block; width: 100%; height: 50px; }
+#navigation #navbar #navTop a { background-image: url(./images/navTop.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#navigation #navbar #navInfo { display: block; cursor: pointer; background-image: url(./images/navInfo.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#navigation #navbar #navInfo.open { background-image: url(./images/navInfoH.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#navigation #navbar #navRSS a { background-image: url(./images/navRSS.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#navigation #navbar #navPC a { background-image: url(./images/navPC.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#navigation #navbar #navSearch span { width: 100%; height: 50px; display: block; cursor: pointer; background-image: url(./images/navSearch.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#navigation #navbar #navSearch span.open { background-image: url(./images/navSearchH.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#navigation #navbar .infos { height: 0; width: 100%; margin: 60px 0 0 0; position: relative; }
+#navigation #navbar .infos li { background-color: #efffd9; height: 0; width: 100%; border-radius: 5px; position: absolute; top: 0; z-index: 2; }
+#navigation #navbar .infos li a { height: 100%; width: 100%; }
+#navigation #navbar .infos .navAbout { -webkit-transition: 0.1s ease-in-out; -moz-transition: 0.1s ease-in-out; -o-transition: 0.1s ease-in-out; -ms-transition: 0.1s ease-in-out; transition: 0.1s ease-in-out; background-image: url(./images/navAbout.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 48px; background-position: center center; }
+#navigation #navbar .infos .navSNS { -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -o-transition: 0.2s ease-in-out; -ms-transition: 0.2s ease-in-out; transition: 0.2s ease-in-out; background-image: url(./images/navSNS.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 48px; background-position: center center; }
+#navigation #navbar .infos .navPrivacy { -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -o-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; background-image: url(./images/navPrivacy.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 48px; background-position: center center; }
+#navigation #navbar .infos .navContact { -webkit-transition: 0.4s ease-in-out; -moz-transition: 0.4s ease-in-out; -o-transition: 0.4s ease-in-out; -ms-transition: 0.4s ease-in-out; transition: 0.4s ease-in-out; background-image: url(./images/navContact.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 48px; background-position: center center; }
+#navigation #navbar .infos:after { clear: both; }
+#navigation #navbar .open .navAbout { height: 50px; }
+#navigation #navbar .open .navSNS { height: 50px; top: 50px; }
+#navigation #navbar .open .navPrivacy { height: 50px; top: 100px; }
+#navigation #navbar .open .navContact { height: 50px; top: 150px; }
+#navigation #navbar #search { margin: 10px 0 0 -250%; padding: 0 10px 0 0; width: 320%; }
+#navigation #navbar #search #textField { display: none; background-color: #FFFFE4; width: 100%; height: 0; height: 32px; border-radius: 8px; border: 1px solid #F4632F; box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.5); }
+#navigation #navbar .free { clear: both; display: none; height: 50px; }
+#navigation #breadCrumb { clear: both; font-size: 1.2rem; margin: 10px 4px; }
+#navigation #breadCrumb li { display: inline; }
+#navigation #breadCrumb li a { margin-right: 10px; }
+
+#content { margin: 10px 0 0 0; }
+#content .jaggedUpside { width: 100%; height: 20px; background: linear-gradient(-135deg, #92DDD0 7px, transparent 0) 0 7px, linear-gradient(135deg, #92DDD0 7px, #FFFFE4 0) 0 7px; background-size: 15px 15px; background-repeat: repeat-x; }
+#content .jaggedUpsideDown { margin: -10px 0 0 0; width: 100%; height: 20px; background: linear-gradient(-135deg, #FFFFE4 7px, transparent 0) 0 7px, linear-gradient(135deg, #FFFFE4 7px, #92DDD0 0) 0 7px; background-size: 15px 15px; background-repeat: repeat-x; }
+#content .sideGaggedHead { width: 100%; height: 20px; background: linear-gradient(-135deg, #92DDD0 7px, transparent 0) 0 7px, linear-gradient(135deg, #92DDD0 7px, #b9e9e1 0) 0 7px; background-size: 15px 15px; background-repeat: repeat-x; }
+#content .sideGaggedTail { width: 100%; height: 20px; background: linear-gradient(-135deg, #b9e9e1 7px, transparent 0) 0 7px, linear-gradient(135deg, #b9e9e1 7px, #92DDD0 0) 0 7px; background-size: 15px 15px; background-repeat: repeat-x; margin: -10px 0 0 0; }
+#content .post { background-color: #FFFFE4; }
+#content .post .entryHeader, #content .post .entryFooter { padding: 10px 10px 20px 10px; }
+#content .post .entryHeader .lastModify, #content .post .entryFooter .lastModify { font-family: "Source Code Pro", sans-serif; font-size: 1.0rem; text-align: right; margin: 0 0 15px 0; }
+#content .post .entryHeader .date time, #content .post .entryFooter .date time, #content .post .entryHeader .date span, #content .post .entryFooter .date span { position: relative; background-color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 1.6rem; color: #FFFFE4; margin: 0 0 0 -10px; padding: 8px 0 8px 20px; }
+#content .post .entryHeader .date time:after, #content .post .entryFooter .date time:after, #content .post .entryHeader .date span:after, #content .post .entryFooter .date span:after { content: ""; position: absolute; top: 0; right: -36px; height: 0; width: 0; border: 18px solid #F4632F; border-right-color: transparent; }
+#content .post .entryHeader .category, #content .post .entryFooter .category { margin: 20px 0 0 30px; font-size: 1.3rem; line-height: 20px; position: relative; }
+#content .post .entryHeader .category:before, #content .post .entryFooter .category:before { content: ""; position: absolute; left: -30px; top: -2px; height: 20px; width: 25px; background-image: url(./images/iconCate.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .post .entryHeader .tag, #content .post .entryFooter .tag { margin: 10px 0 15px 30px; font-size: 1.1rem; line-height: 21px; position: relative; }
+#content .post .entryHeader .tag:before, #content .post .entryFooter .tag:before { content: ""; position: absolute; left: -33px; top: -2px; height: 23px; width: 30px; background-image: url(./images/iconTag.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .post .entryHeader .tag a, #content .post .entryFooter .tag a { padding: 0 10px; border: 1px solid #68adae; border-radius: 15px; margin: 0 8px 8px 0; display: inline-block; color: #FFFFE4; background-color: #92DDD0; }
+#content .post .entryHeader h1, #content .post .entryFooter h1 { font-size: 1.8rem; }
+#content .post .entryHeader h1 a, #content .post .entryFooter h1 a { color: #6f3712; }
+#content .post .fbpLike { width: 300px; margin: 0 auto 20px auto; color: #646464; font-size: 1.4rem; text-align: center; }
+#content .post .relation { margin: 40px 0 0 0; }
+#content .post .relation h1 { position: relative; background-color: #9fd882; font-size: 1.4rem; color: #FFFFE4; margin: 0 0 15px 0; padding: 7px 0 7px 10px; width: 270px; }
+#content .post .relation h1:after { content: ""; position: absolute; top: 0; right: -33px; height: 0; width: 0; border: 18px solid #9fd882; border-right-color: transparent; }
+#content .post .relation .cate { font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; margin: 0 0 0 10px; color: #F4632F; }
+#content .post .relation .wrap8title { margin: 6px 0 10px 0; border-bottom: 1px solid #f9ac90; }
+#content .post .relation .wrap8title .linkBox { clear: both; width: 93%; height: 80px; overflow: hidden; border-top: 1px solid #f9ac90; padding: 0 7% 0 0; background-image: url(./images/spCell.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 100%; background-position: right center; }
+#content .post .relation .wrap8title .linkBox .thumb { width: 100px; height: 80px; overflow: hidden; float: left; margin: 0 10px 0 0; }
+#content .post .relation .wrap8title .linkBox .date { text-align: right; font-family: "Source Code Pro", sans-serif; font-size: 1.1rem; color: #6f3712; }
+#content .post .relation .wrap8title .linkBox .title { font-size: 1.3rem; word-break: break-all; padding: 2px 3px; }
+#content .post .relation ul { margin: 20px auto 10px auto; width: 282px; }
+#content .post .relation li { font-size: 1.2rem; text-align: center; line-height: 33px; margin: 0 0 10px 0; }
+#content .post .relation li a { display: block; background-color: #f9ac90; color: #FFFFE4; width: 280px; height: 30px; border: 1px solid #F4632F; border-radius: 15px; }
+#content .post .relation li a:hover { background-color: #e0f5f2; color: #68adae; }
+#content .post .entryFooter { border-top: 2px dotted #92DDD0; }
+#content .post .entryFooter time { margin: 10px 0 0 30px; font-size: 1.3rem; line-height: 20px; font-family: "Source Code Pro", sans-serif; position: relative; }
+#content .post .entryFooter time:before { content: ""; position: absolute; left: -28px; top: 2px; height: 20px; width: 20px; background-image: url(./images/iconTime.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .post .entryFooter .lastModify { color: lightn(#6f3712, 15%); text-align: left; margin: 0 0 0 30px; }
+#content .post .entryFooter .category { margin-top: 10px; }
+#content .post .entryFooter .tag { margin-bottom: 2px; }
+#content .post .entryFooter .commCount { font-size: 1.6rem; font-family: "Source Code Pro", sans-serif; line-height: 24px; margin: 1px 0 0 33px; position: relative; }
+#content .post .entryFooter .commCount:before { content: ""; position: absolute; left: -31px; height: 24px; width: 27px; background-image: url(./images/iconComm.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .about { background-color: #FFFFE4; padding: 20px 5px 30px 10px; }
+#content .about h1 { position: relative; background-color: #F4632F; font-size: 1.7rem; font-family: "Source Code Pro", sans-serif; color: #FFFFE4; margin: 0 0 15px -10px; padding: 7px 0 7px 25px; width: 175px; }
+#content .about h1:after { content: ""; position: absolute; top: 0; right: -36px; height: 0; width: 0; border: 18px solid #F4632F; border-right-color: transparent; }
+#content .about dt { color: #F4632F; border-bottom: 1px solid #F4632F; }
+#content .about dd { font-size: 1.4rem; margin: 10px 20px; text-align: justify; }
+#content .about .authorImg { width: 80px; height: 80px; background-image: url(./images/profYucovin200.png); background-repeat: no-repeat; background-size: 100% auto; border: 1px solid #ff571a; margin: 20px 20px 15px 20px; float: left; }
+#content .about .author { margin: 30px 0 0 10px; font-family: "Source Code Pro", sans-serif; font-size: 1.9rem; color: #F4632F; }
+#content .about .site { clear: both; font-size: 1.6rem; margin: 30px 0 0 10px; }
+#content .about .follow { border-top: 2px dotted #92DDD0; padding: 20px 0 0 0; margin: 40px 10px 0 10px; font-size: 1.3rem; }
+#content .about .whisper { font-size: 1.0rem; }
+#content .about .notice { clear: both; width: 90%; margin: 0 auto; font-size: 1.0rem; color: #706f6f; }
+#content .about .more { font-size: 1.4rem; text-align: center; line-height: 33px; width: 100%; margin: 20px auto 0 auto; }
+#content .about .more a { display: block; background-color: #f9ac90; color: #FFFFE4; width: 80%; height: 32px; margin: 0 auto; border: 1px solid #F4632F; border-radius: 16px; }
+#content .about .more a:hover { background-color: #e0f5f2; color: #68adae; }
+#content #comments { background-color: #FFFFE4; padding: 10px 5px 20px 8px; word-wrap: break-word; }
+#content #comments h1 { font-family: "Source Code Pro", sans-serif; text-align: right; font-size: 1.0rem; color: #92DDD0; }
+#content #comments h2 { position: relative; background-color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 1.7rem; color: #FFFFE4; margin: 0 0 10px -8px; padding: 7px 0 7px 25px; }
+#content #comments h2:after { content: ""; position: absolute; top: 0; right: -36px; height: 0; width: 0; border: 18px solid #F4632F; border-right-color: transparent; }
+#content #comments .show { margin: 0 0 30px 0; }
+#content #comments .show h2 { width: 255px; }
+#content #comments .show .thisPost { font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; font-size: 1.2rem; color: #F4632F; }
+#content #comments .show .comment-author { clear: both; font-size: 1.4rem; margin: 10px 0; }
+#content #comments .show .comment-author .says { font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; font-size: 1.3rem; color: gray; }
+#content #comments .show .authorImg { float: left; width: 60px; height: 60px; margin: 0 30px 0 0; }
+#content #comments .show .textArea { float: left; border: 1px solid #F4632F; border-radius: 10px; position: relative; background-color: #fffcfc; display: block; position: relative; width: 60%; padding: 5px 7px 12px 15px; }
+#content #comments .show .textArea:before { content: ""; position: absolute; top: 25px; left: -30px; height: 0; width: 0; border: 15px solid #F4632F; border-top-color: transparent; border-bottom-color: transparent; border-left-color: transparent; }
+#content #comments .show .textArea:after { content: ""; position: absolute; top: 25px; left: -29px; height: 0; width: 0; border: 15px solid #fffcfc; border-top-color: transparent; border-bottom-color: transparent; border-left-color: transparent; }
+#content #comments .show .textArea .comment-meta { text-align: right; font-family: "Source Code Pro", sans-serif; font-size: 1.2rem; }
+#content #comments .show .textArea .text { font-size: 1.3rem; }
+#content #comments .show .reply { clear: both; float: right; margin: 10px 15px 30px 0; font-size: 1.1rem; }
+#content #comments .show li { border-bottom: 3px dashed #f5d4be; }
+#content #comments .show .children { margin: 0 0 0 15px; }
+#content #comments .show .children li { border-bottom: none; }
+#content #comments .submit h2 { width: 140px; }
+#content #comments .submit .message { color: #F4632F; font-size: 1.1rem; margin: 0 8px 30px 10px; }
+#content #comments .submit h3 { font-size: 1.3rem; margin: 0 0 0 10px; color: gray; }
+#content #comments .submit .jet { width: 90%; margin: 0 auto; }
+#content #comments .submit .notice { padding: 20px; }
+#content #comments .submit .notice h4 { font-size: 1.4rem; border-left: 14px solid #ff9d9d; border-radius: 10px; padding: 0 0 0 8px; color: #ff9d9d; }
+#content #comments .submit .notice dt { border-bottom: 1px solid #ff9d9d; margin: 20px 0 10px 0; font-size: 1.3rem; }
+#content #comments .submit .notice dd { font-size: 1.2rem; color: gray; margin: 10px 0; }
+#content .appeal { background-color: #b9e9e1; padding: 10px 8px 20px 10px; }
+#content .appeal h1 { font-size: 1.4rem; color: #F4632F; margin: 20px 0 15px 0; border-bottom: 1px dotted #F4632F; }
+#content .appeal p { font-size: 1.2rem; text-align: justify; }
+#content .myApp img { margin: 10px 20px 10px 0; border-radius: 15px; float: left; }
+#content .appDojo .dojoBanner { border-radius: 15px; width: 300px; height: 250px; margin: 20px auto 0 auto; background-color: rgba(255, 253, 233, 0.2); border: 1px dotted #F4632F; }
+#content .edgeRank img { margin: 10px 20px 10px 0; float: left; }
+#content .support img { margin: 5px 0px 10px 20px; float: right; }
+
+#footernav { margin: 30px auto 0px auto; }
+#footernav #catelistPlus { margin: 0 0 30px 0; }
+#footernav #catelistPlus ul { /* 複数の背景画像はまとめて書く。バラバラだと最後のしか適用されない*/ }
+#footernav #catelistPlus ul li { width: 49.5%; height: 50px; float: left; border-top: 1px solid #f9ac90; border-left: 1px solid #f9ac90; background-color: #FFFFE4; }
+#footernav #catelistPlus ul li a { display: block; font-size: 1.4rem; font-family: "Source Code Pro", sans-serif; line-height: 1; color: #68adae; }
+#footernav #catelistPlus ul .right { border-right: 1px solid #f9ac90; }
+#footernav #catelistPlus ul .short a { width: 82%; height: 22px; padding: 18px 8% 10px 10%; }
+#footernav #catelistPlus ul .long a { width: 82%; height: 30px; padding: 10px 8% 10px 10%; }
+#footernav #catelistPlus ul .illustTag a { font-size: 1.3rem; }
+#footernav #catelistPlus ul .cat a { background-image: url(./images/spCell.png), url(./images/iconCate.png); background-repeat: no-repeat, no-repeat; background-size: auto 100%, 20px auto; background-position: right center, 2px 3px; }
+#footernav #catelistPlus ul .tag a { background-image: url(./images/spCell.png), url(./images/iconTag.png); background-repeat: no-repeat, no-repeat; background-size: auto 100%, 20px auto; background-position: right center, 2px 1px; }
+#footernav #catelistPlus ul:after { clear: both; }
+#footernav #catelistPlus .allTags { clear: both; width: 99.2%; height: 40px; border: 1px solid #f9ac90; background-color: #FFFFE4; }
+#footernav #catelistPlus .allTags a { display: block; width: 100%; height: 20px; padding: 10px 0 10px 0; text-align: center; font-family: "Source Code Pro", sans-serif; font-size: 1.3rem; background-image: url(./images/spCell.png), url(./images/iconTag.png); background-repeat: no-repeat, no-repeat; background-size: auto 120%, 20px auto; background-position: right center, 2px 1px; }
+#footernav #fnavbar { margin: 10px 0; width: 100%; }
+#footernav #fnavbar:after { clear: both; }
+#footernav #fnavbar ul:after { clear: both; }
+#footernav #fnavbar li { float: left; width: 20%; height: 50px; background-color: #FFFFE4; }
+#footernav #fnavbar li a { display: block; width: 100%; height: 50px; }
+#footernav #fnavbar #navTop a { background-image: url(./images/navTop.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#footernav #fnavbar #navInfo { display: block; cursor: pointer; background-image: url(./images/navInfo.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#footernav #fnavbar #navInfo.open { background-image: url(./images/navInfoH.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#footernav #fnavbar #navRSS a { background-image: url(./images/navRSS.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#footernav #fnavbar #navPC a { background-image: url(./images/navPC.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; }
+#footernav #fnavbar #toPageTop a { background-image: url(./images/navPageTop.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 50px; background-position: center center; cursor: pointer; }
+#footernav #fnavbar .infos { height: 0; width: 100%; margin: -10px 0 0 0; position: relative; }
+#footernav #fnavbar .infos li { background-color: #efffd9; height: 0; width: 100%; border-radius: 5px; position: absolute; top: 0; }
+#footernav #fnavbar .infos li a { height: 100%; width: 100%; }
+#footernav #fnavbar .infos .navAbout { -webkit-transition: 0.4s ease-in-out; -moz-transition: 0.4s ease-in-out; -o-transition: 0.4s ease-in-out; -ms-transition: 0.4s ease-in-out; transition: 0.4s ease-in-out; background-image: url(./images/navAbout.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 48px; background-position: center center; }
+#footernav #fnavbar .infos .navSNS { -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -o-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; background-image: url(./images/navSNS.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 48px; background-position: center center; }
+#footernav #fnavbar .infos .navPrivacy { -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -o-transition: 0.2s ease-in-out; -ms-transition: 0.2s ease-in-out; transition: 0.2s ease-in-out; background-image: url(./images/navPrivacy.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 48px; background-position: center center; }
+#footernav #fnavbar .infos .navContact { -webkit-transition: 0.1s ease-in-out; -moz-transition: 0.1s ease-in-out; -o-transition: 0.1s ease-in-out; -ms-transition: 0.1s ease-in-out; transition: 0.1s ease-in-out; background-image: url(./images/navContact.png); background-repeat: no-repeat; background-size: 100% auto; background-size: auto 48px; background-position: center center; }
+#footernav #fnavbar .infos:after { clear: both; }
+#footernav #fnavbar .open .navAbout { height: 50px; top: -200px; }
+#footernav #fnavbar .open .navSNS { height: 50px; top: -150px; }
+#footernav #fnavbar .open .navPrivacy { height: 50px; top: -100px; }
+#footernav #fnavbar .open .navContact { height: 50px; top: -50px; }
+
+#footer { background-color: #F4632F; padding: 10px 0; }
+#footer #copyright { width: 100%; margin: 0 auto; text-align: center; font-size: 1.2rem; line-height: 1.2; color: #e0f5f2; }
+#footer #copyright a { color: #FFFFE4; }
+#footer #copyright a:hover { color: #6f3712; }
+
+#floatNav { position: fixed; left: 30px; bottom: 40px; width: 50px; height: 50px; cursor: pointer; /* クリックイベント発動後 top,leftはul基準するべく全部-10pxしてある*/ }
+#floatNav ul { position: absolute; top: 10px; left: 10px; width: 30px; height: 30px; border-radius: 50%; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); background-color: rgba(255, 255, 255, 0.5); background-image: url(./images/flortNavPlus.png); background-repeat: no-repeat; background-size: 100% auto; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); -webkit-transition: 0.6s ease-in-out; -moz-transition: 0.6s ease-in-out; -o-transition: 0.6s ease-in-out; -ms-transition: 0.6s ease-in-out; transition: 0.6s ease-in-out; }
+#floatNav li { position: absolute; top: -10px; left: -10px; width: 50px; height: 50px; opacity: 1; -webkit-transform: rotate(-540deg) scale(0.001); -moz-transform: rotate(-540deg) scale(0.001); -o-transform: rotate(-540deg) scale(0.001); -ms-transform: rotate(-540deg) scale(0.001); transform: rotate(-540deg) scale(0.001); }
+#floatNav li a { background-color: #f2ffda; display: block; width: 100%; height: 100%; border-radius: 50%; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); }
+#floatNav li a:hover { background-color: #ffecdc; }
+#floatNav .iphone { -webkit-transition-delay: 0.0s; -moz-transition-delay: 0.0s; -o-transition-delay: 0.0s; -ms-transition-delay: 0.0s; transition-delay: 0.0s; -webkit-transition: 0.6s ease-in-out; -moz-transition: 0.6s ease-in-out; -o-transition: 0.6s ease-in-out; -ms-transition: 0.6s ease-in-out; transition: 0.6s ease-in-out; }
+#floatNav .iphone a { background-image: url(./images/cateiPhone.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .iphone a:hover { background-image: url(./images/cateiPhoneH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .mac { -webkit-transition-delay: 0.1s; -moz-transition-delay: 0.1s; -o-transition-delay: 0.1s; -ms-transition-delay: 0.1s; transition-delay: 0.1s; -webkit-transition: 0.5s ease-in-out; -moz-transition: 0.5s ease-in-out; -o-transition: 0.5s ease-in-out; -ms-transition: 0.5s ease-in-out; transition: 0.5s ease-in-out; }
+#floatNav .mac a { background-image: url(./images/cateMac.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .mac a:hover { background-image: url(./images/cateMacH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .apple { -webkit-transition-delay: 0.2s; -moz-transition-delay: 0.2s; -o-transition-delay: 0.2s; -ms-transition-delay: 0.2s; transition-delay: 0.2s; -webkit-transition: 0.4s ease-in-out; -moz-transition: 0.4s ease-in-out; -o-transition: 0.4s ease-in-out; -ms-transition: 0.4s ease-in-out; transition: 0.4s ease-in-out; }
+#floatNav .apple a { background-image: url(./images/cateApple.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .apple a:hover { background-image: url(./images/cateAppleH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .dev { -webkit-transition-delay: 0.3s; -moz-transition-delay: 0.3s; -o-transition-delay: 0.3s; -ms-transition-delay: 0.3s; transition-delay: 0.3s; -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -o-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; }
+#floatNav .dev a { background-image: url(./images/cateDev.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .dev a:hover { background-image: url(./images/cateDevH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .diary { -webkit-transition-delay: 0.4s; -moz-transition-delay: 0.4s; -o-transition-delay: 0.4s; -ms-transition-delay: 0.4s; transition-delay: 0.4s; -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -o-transition: 0.2s ease-in-out; -ms-transition: 0.2s ease-in-out; transition: 0.2s ease-in-out; }
+#floatNav .diary a { background-image: url(./images/cateDiary.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .diary a:hover { background-image: url(./images/cateDiaryH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#floatNav .open .iphone { top: -155px; left: -10px; opacity: 1; -webkit-transform: scale(1) rotate(0deg); -moz-transform: scale(1) rotate(0deg); -o-transform: scale(1) rotate(0deg); -ms-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg); }
+#floatNav .open .mac { top: -145px; left: 46px; opacity: 1; -webkit-transform: scale(1) rotate(0deg); -moz-transform: scale(1) rotate(0deg); -o-transform: scale(1) rotate(0deg); -ms-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg); }
+#floatNav .open .apple { top: -110px; left: 90px; opacity: 1; -webkit-transform: scale(1) rotate(0deg); -moz-transform: scale(1) rotate(0deg); -o-transform: scale(1) rotate(0deg); -ms-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg); }
+#floatNav .open .dev { top: -65px; left: 124px; opacity: 1; -webkit-transform: scale(1) rotate(0deg); -moz-transform: scale(1) rotate(0deg); -o-transform: scale(1) rotate(0deg); -ms-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg); }
+#floatNav .open .diary { top: -10px; left: 135px; opacity: 1; -webkit-transform: scale(1) rotate(0deg); -moz-transform: scale(1) rotate(0deg); -o-transform: scale(1) rotate(0deg); -ms-transform: scale(1) rotate(0deg); transform: scale(1) rotate(0deg); }
+#floatNav ul.open { -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg); background-color: white; }
+
+/* index用... */
+.boxPost { background-color: #FFFFE4; padding: 30px 10px 10px 10px; }
+.boxPost .date time { position: relative; background-color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 1.6rem; color: #FFFFE4; margin: 0 0 0 -10px; padding: 8px 0 8px 20px; }
+.boxPost .date time:after { content: ""; position: absolute; top: 0; right: -36px; height: 0; width: 0; border: 18px solid #F4632F; border-right-color: transparent; }
+.boxPost .category { margin: 20px 0 0 30px; font-size: 1.1rem; line-height: 20px; position: relative; }
+.boxPost .category:before { content: ""; position: absolute; left: -30px; top: -2px; height: 20px; width: 25px; background-image: url(./images/iconCate.png); background-repeat: no-repeat; background-size: 100% auto; }
+.boxPost .tag { clear: both; margin: 8px 0 10px 30px; font-size: 1.0rem; line-height: 20px; position: relative; }
+.boxPost .tag:before { content: ""; position: absolute; left: -33px; top: -2px; height: 20px; width: 26px; background-image: url(./images/iconTag.png); background-repeat: no-repeat; background-size: 100% auto; }
+.boxPost .tag a { padding: 0 10px; border: 1px solid #68adae; border-radius: 15px; margin: 0 8px 8px 0; display: inline-block; color: #FFFFE4; background-color: #92DDD0; }
+.boxPost .titleBox { margin: 10px 0; }
+.boxPost .titleBox .thumb { width: 100%; height: auto; overflow: hidden; margin: 0 0 10px 0; }
+.boxPost .titleBox h1 { font-size: 1.6rem; color: #6f3712; }
+.boxPost .morelink { font-size: 1.5rem; font-family: "Source Code Pro", sans-serif; text-align: right; }
+.boxPost .morelink a { color: #f7875f; }
+
+/* ad etc... */
+.ad300 { width: 300px; height: 250px; margin: 5px auto; }
+
+.ad320 { width: 320px; height: 100px; margin: 5px auto; }
+
+/* share button */
+.sharePlease { margin: 20px auto; width: 280px; text-align: center; font-size: 1.4rem; color: #F4632F; border-left: 20px solid #92DDD0; border-right: 20px solid #92DDD0; }
+
+.share { margin: 18px auto; width: 93%; }
+.share .sns { float: left; line-height: 1; }
+.share .twitter { width: 20%; text-align: center; }
+.share .facebook { width: 23%; text-align: center; }
+.share .googleplus { width: 18%; text-align: center; }
+.share .hatebu { width: 18%; text-align: center; }
+.share .pocket { width: 21%; text-align: center; }
+
+.followMeSet { margin: 30px 0 5px 8px; }
+.followMeSet li { float: left; margin: 0 5px 5px 0; }
+.followMeSet li a { width: 70px; height: 70px; display: block; background-color: white; border: 1px solid #F4632F; border-radius: 10px; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+.followMeSet li a:hover { box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.7); background-color: #fff0ec; }
+.followMeSet .rss a { background-image: url(./images/followRss.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .rss a:hover { background-image: url(./images/followRssH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .feedly a { background-image: url(./images/followFeedly.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .feedly a:hover { background-image: url(./images/followFeedlyH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .twitter a { background-image: url(./images/followTwitter.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .twitter a:hover { background-image: url(./images/followTwitterH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .facebook a { background-image: url(./images/followFacebook.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .facebook a:hover { background-image: url(./images/followFacebookH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .googlePlus a { background-image: url(./images/followGooglePlus.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .googlePlus a:hover { background-image: url(./images/followGooglePlusH.png); background-repeat: no-repeat; background-size: 100% auto; }
+
+/* for single 前後post navi */
+.postNav { width: 95%; margin: 20px auto; font-size: 1.2rem; /* margin: 0 0 40px 0; */ }
+.postNav .prePost a { width: 60%; height: 40px; color: #FFFFE4; overflow: hidden; float: left; background-image: url(./images/postNew.png); background-repeat: no-repeat; background-size: auto 40px; background-position: left top; padding: 0 0 0 45px; margin: 0 0 10px 0; }
+.postNav .prePost a:hover { background-image: url(./images/postNewH.png); background-repeat: no-repeat; background-size: auto 40px; background-position: left top; color: #F4632F; }
+.postNav .nextPost a { width: 60%; height: 40px; color: #FFFFE4; overflow: hidden; float: right; text-align: right; background-image: url(./images/postOld.png); background-repeat: no-repeat; background-size: auto 40px; background-position: right top; padding: 0 45px 0 0; }
+.postNav .nextPost a:hover { background-image: url(./images/postOldH.png); background-repeat: no-repeat; background-size: auto 40px; background-position: right top; color: #F4632F; }
+
+/* for archive pagination */
+.pages { font-family: "Source Code Pro", sans-serif; font-size: 1.2rem; margin: 10px 10px 0 0; text-align: right; color: #FFFFE4; }
+
+.pagination { font-size: 1.4rem; text-align: center; font-family: "Source Code Pro", sans-serif; margin: 3px 0 20px 0; height: 30px; line-height: 28px; }
+.pagination a { display: inline-block; width: 28px; height: 28px; background-color: #FFFFE4; border: 1px solid #F4632F; border-radius: 50%; margin: 0 2px; }
+.pagination a:hover { box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.7); }
+.pagination .current { display: inline-block; width: 28px; height: 28px; border: 1px solid #F4632F; border-radius: 50%; margin: 0 2px; background-color: #f9ac90; color: #FFFFE4; }
+
+/* for Archive page */
+.kind { margin: 0 0 10px 0; font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; color: #F4632F; }
+.kind p { font-size: 1.4rem; padding: 0 0 0 10px; margin: 0 0 13px 0; }
+.kind .aRibbon { font-size: 1.5rem; padding: 10px 10px 10px 12px; background-color: #FFFFE4; position: relative; }
+.kind .aRibbon:after { content: ""; position: absolute; top: 0; right: -40px; height: 0; width: 0; border: 20px solid #FFFFE4; border-top-color: transparent; border-bottom-color: transparent; border-right-color: transparent; }
+
+/* for about page */
+.necoOffice .prof { margin: 30px 0; }
+.necoOffice .prof .image { float: left; width: 120px; height: 120px; margin: 45px 10px 10px 0; border-radius: 50%; }
+.necoOffice .prof h1 { font-size: 1.7rem; text-align: right; }
+.necoOffice .prof .name { text-align: right; font-family: "Source Code Pro", sans-serif; font-size: 1.2rem; margin: 0 0 8px 0; color: #F4632F; border-top: 1px dotted #F4632F; }
+.necoOffice .prof .machine { font-family: "Source Code Pro", sans-serif; position: relative; margin: 0 0 8px 160px; text-align: left; }
+.necoOffice .prof .machine:before { content: ""; position: absolute; left: -35px; top: 0; height: 20px; width: 28px; background-image: url(./images/iconMachine.png); background-repeat: no-repeat; background-size: 100% auto; }
+.necoOffice .prof .phone { font-family: "Source Code Pro", sans-serif; position: relative; margin: 0 0 8px 160px; text-align: left; }
+.necoOffice .prof .phone:before { content: ""; position: absolute; left: -35px; top: 0; height: 20px; width: 28px; background-image: url(./images/iconPhone.png); background-repeat: no-repeat; background-size: 100% auto; }
+.necoOffice .prof .explain { clear: both; }
+.necoOffice .yucoImage { background-image: url(./images/aboutYuco.png); background-repeat: no-repeat; background-size: 100% auto; }
+.necoOffice .necoImage { background-image: url(./images/aboutNeco.png); background-repeat: no-repeat; background-size: 100% auto; }
+.necoOffice .ddImage { background-image: url(./images/aboutDD.png); background-repeat: no-repeat; background-size: 100% auto; }
+.necoOffice .office h1 { font-size: 2.0rem; margin: 10px 0 0 0px; text-align: right; border-bottom: 3px double #92DDD0; }
+.necoOffice .office img { margin: 30px 10px 5px 0; float: left; width: 60%; }
+
+/* for all post title page */
+.allTitle { padding: 0 0 30px 0; }
+.allTitle .date { margin: 20px 0 0 0; }
+.allTitle h2 { margin: 60px 0 20px 0; color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 2.0rem; border-bottom: 1px dotted #F4632F; }
+.allTitle .dayTitle { margin: 20px 0; }
+.allTitle .dayTitle .miniThumbnail { width: 50px; height: 50px; float: left; overflow: hidden; margin-right: 15px; margin-top: 5px; }
+.allTitle .dayTitle .day { font-family: "Source Code Pro", sans-serif; }
+
+/* for contact page */
+.contact_form { margin: 0 10px 0 0; padding: 20px 40px; border: 1px solid #b9b9b9; background-color: #ffffff; background-image: url(./images/graphSkyBlue.png); background-size: 20px 20px; }
+
+/* googleカスタム検索 */
+#cse { /* 最初のlodingのため*/ line-height: 32px; font-size: 1.5rem; color: #92DDD0; margin: 0 0 0 3px; }
+
+/* 検索窓の外 */
+.cse .gsc-control-cse, .gsc-control-cse { padding: 0 !important; width: auto; font-family: "Trebuchet MS", sans-serif; background-color: transparent !important; border: none !important; }
+
+/* 窓と検索ボタンの間 */
+.cse table.gsc-search-box td.gsc-input, table.gsc-search-box td.gsc-input { padding-right: 6px !important; }
+
+/* Search input field */
+.cse input.gsc-input, input.gsc-input { font-family: inherit; font-size: 14px !important; border: none !important; background-color: transparent !important; padding: 0 6px !important; height: 32px; border-radius: 16px !important; }
+
+/* Search button */
+.cse input.gsc-search-button, input.gsc-search-button { padding: 0; min-width: 20px !important; margin: 0 !important; cursor: pointer; width: 20px !important; height: 25px !important; border: none !important; background-color: transparent !important; background-image: url(./images/searchH.png); background-repeat: no-repeat; background-size: 100% auto; text-indent: 999px; overflow: hidden; }
+
+/* for Single */
+.entryBody { margin: 20px 14px 0 14px; text-align: justify; position: relative; z-index: 0; font-size: 1.4rem; /* スマフォ特有な設定 */ word-wrap: break-word; line-height: 1.6em; /* img size */ /* tableはみ出し回避 */ /* youtubeのビデオのはみ出し回避 */ /* endスマフォ特有な設定 */ }
+.entryBody img { max-width: 100%; height: auto; }
+.entryBody table { word-break: break-all; }
+.entryBody .video_con { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; margin-top: 20px; margin-bottom: 20px; }
+.entryBody .video_con iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.entryBody h2 { font-size: 1.6rem; color: #FFFFE4; margin: 70px -14px 30px -10px; padding: 4px 15px 4px 40px; background-color: #F4632F; border-radius: 22px 0 0 22px; line-height: 1.6; position: relative; }
+.entryBody h2:before { position: absolute; content: ""; top: 50%; margin-top: -8px; left: 10px; height: 16px; width: 16px; background-color: #FFFFE4; border-radius: 50%; box-shadow: 1px 1px 1px #777 inset; }
+.entryBody h3 { font-size: 1.6rem; color: #F4632F; margin: 60px 0 15px 10px; padding: 0 0 0 10px; border-bottom: 1px dotted #F4632F; position: relative; }
+.entryBody h3:before { position: absolute; content: ""; top: 0; left: -5px; height: 10px; width: 10px; background-color: #f9ac90; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+.entryBody h3:after { position: absolute; content: ""; top: 15px; left: -10px; height: 8px; width: 8px; background-color: #F4632F; -webkit-transform: rotate(15deg); -moz-transform: rotate(15deg); -o-transform: rotate(15deg); -ms-transform: rotate(15deg); transform: rotate(15deg); }
+.entryBody h4 { margin: 3rem 0 1rem 0; border-left: 10px solid #92DDD0; padding-left: 1em; border-radius: 5px 0 0 5px; }
+.entryBody ul { margin: 20px; }
+.entryBody ul li { font-weight: bold; }
+.entryBody p { margin: 26px 0; }
+.entryBody .komoji { font-size: 80%; }
+.entryBody th { background-color: #f9ac90; color: #FFFFE4; text-align: left; font-size: 95%; padding: 10px; border-style: solid; border-width: 1px; border-color: #F4632F; }
+.entryBody td { padding: 10px; font-size: 100%; border-style: solid; border-width: 1px; border-color: #fcd0c0; }
+.entryBody .kanwa { width: 80%; border-bottom: 2px dotted #92DDD0; margin: 20px auto; }
+.entryBody blockquote { color: #206176; margin: 14px 0; width: 84%; font-size: 1.4rem; padding: 12px 8% 8px 8%; border: 1px solid #b9b9b9; background-color: #ffffff; background-image: url(./images/graphSkyBlue.png); background-size: 20px 20px; position: relative; z-index: auto; }
+.entryBody blockquote:before { position: absolute; content: ""; width: 45%; height: 40px; right: 10px; bottom: 15px; box-shadow: 0 15px 10px #777; -webkit-transform: rotate(4deg); -moz-transform: rotate(4deg); -o-transform: rotate(4deg); -ms-transform: rotate(4deg); transform: rotate(4deg); z-index: -1; }
+.entryBody blockquote .from { font-style: italic; margin: 22px; text-align: right; font-size: 90%; }
+.entryBody .applink { margin: 14px 0; width: 90%; padding: 12px 5% 8px 5%; border: 1px solid #b9b9b9; background-color: #ffffff; background-image: url(./images/graphSkyBlue.png); background-size: 20px 20px; position: relative; z-index: auto; }
+.entryBody .applink:before { position: absolute; content: ""; width: 45%; height: 40px; right: 10px; bottom: 15px; box-shadow: 0 15px 10px #777; -webkit-transform: rotate(4deg); -moz-transform: rotate(4deg); -o-transform: rotate(4deg); -ms-transform: rotate(4deg); transform: rotate(4deg); z-index: -1; }
+.entryBody .applink .appCheck { margin: 10px 0; width: 250px; height: 56px; border-radius: 10px; border: 1px solid #92DDD0; background-color: rgba(246, 247, 195, 0.5); background-image: url(./images/appCheck.png); background-repeat: no-repeat; background-size: 100% auto; }
+
+/* AmazonJS */
+.amazonjs_item { background-color: #fffff4 !important; }
+
+/* 以下投稿共通 */
+/* Alignment画像の配置CSSをWordPressの指定と合わせる */
+.alignnone { margin-left: 1.5em; margin-bottom: 1.5em; }
+
+.alignleft { display: inline; float: left; margin-right: 1.5em; margin-bottom: 1.5em; }
+
+.alignright { display: inline; float: right; margin-left: 1.5em; margin-bottom: 1.5em; }
+
+.aligncenter { clear: both; display: block; margin-left: auto; margin-right: auto; margin-bottom: 1.5em; }
+
+img.size-full, img.size-large { max-width: 97.5%; width: auto; height: auto; }
+
+img.alignleft, ima.alignright, ima.aligncenter { margin-bottom: 1.5em; }
+
+/* Captionキャプション付き画像のCSSをWordPressの指定と合わせる */
+p img, .wp-caption { margin-top: 0.4em; text-align: center; }
+
+.wp-caption { background-color: #eee; margin-bottom: 1.5em; padding: 5px 0; }
+
+.wp-caption img { display: block; margin: 0 auto; }
+
+.wp-caption .wp-caption-text { font-size: 92.3%; margin: 0; padding: 5px 5px 0 5px; }
+
+/* ~~ MW Theme Switcher on Multi Device Switcher ~~ */
+.pc-switcher { display: none; }
+
+.renderSwitcher { display: none; }
+
+/*# sourceMappingURL=style.css.map */

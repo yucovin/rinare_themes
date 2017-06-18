@@ -1,0 +1,2083 @@
+/*
+Theme name: rinare flat cute for smartphone
+Theme URI: http://rinare.com/
+Author: yuco vincent(sakuma nino)
+Author; URI: http://rinare.com/
+Description: smartphone theme / flat cute style for "motto siritai ringo arekore" Apple blog
+Version: 1.0
+*/
+
+
+/* clearfix */
+/* For modern browsers */
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom:1;
+}
+
+/* リストの余白とマージンをゼロ */
+ul, ol, dl { 
+	padding: 0;
+	margin: 0;
+}
+ul, li {
+	list-style-type: none;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0; /* 上マージンを削除することで、マージンを含む div からマージンがはみ出す場合があるという問題を回避。下マージンをとれば、後続のエレメントからは離される。 */
+	margin-bottom: 0;
+	padding-right: 0;
+	padding-left: 0;
+}
+p {
+	line-height: 1.7em;
+	margin-bottom: 0; /* wordpressの標準だと24pxらしい */
+}
+/* Delete blue line of img link */
+a img { 
+	border: none;
+}
+/* img下に隙間ができるので回避 */
+img {
+	vertical-align: bottom;
+}
+
+a:link {
+	color: #26aeb3;
+	text-decoration: none;
+}
+a:visited {
+	color: #7852b5;
+}
+a:hover, a:active, a:focus { 
+	color: #ff7b6c;
+}
+
+/* jetpackの統計用img */
+img#wpstats{display:none}
+
+html {font-size:62.5%;}/*←ルートで10px基準サイズを決定*/
+body {font-size:1.5rem;}/*←BODY全体1.5倍(15px相当)のサイズを相対指定*/
+
+$maruFont: "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif;
+$kakuFont: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif;
+$codeFont: "Source Code Pro", sans-serif;
+$mixcodeFont: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif;
+
+
+// $tintColor: #ff540b;
+$tintColor: #F4632F;//いつもの
+// $tintColor: #ff4242;//クリスマス仕様
+$baseColor: #FFFFE4;
+$subColor: #92DDD0;//いつもの
+// $subColor: #94dbaf;//クリスマス仕様
+$titleColor: #68adae;
+$textColor: #6f3712;
+
+@mixin bgiPng($filename) {
+	background-image: url(./images/#{$filename}.png);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+
+@mixin jagged15($topColor, $tailColor){
+	width: 100%;
+	height: 20px;
+	background: linear-gradient(-135deg, $topColor 7px, transparent 0) 0 7px, linear-gradient(135deg, $topColor 7px, $tailColor 0) 0 7px;
+	background-size: 15px 15px; 
+	background-repeat: repeat-x;
+}
+
+$prefixList: -webkit-, -moz-, -o-, -ms-, null;
+
+@mixin keyframe($actionName) {
+	@-moz-keyframes #{$actionName} {
+		@content;
+	}
+	@-o-keyframes #{$actionName} {
+		@content;
+	}
+	@-ms-keyframes #{$actionName} {
+		@content;
+	}
+	@keyframes #{$actionName} {
+		@content;
+	}
+}
+
+
+body {
+	font-family: $kakuFont;
+	margin: 0;
+	padding: 0;
+	color: $textColor;
+	background-color: #abe9e1;
+	-webkit-text-size-adjust: 100%;
+}
+
+
+
+#container {
+	max-width: 550px;
+	min-width: 320px;
+	background-color: #F4632F;
+	margin: 0 auto;
+	background-color: $subColor;
+}
+#header{
+	background-color: $tintColor;
+	padding: 0 0 5px 0;
+	img {
+		width: 100%;
+		height: auto;
+	}
+	#catchphrase {
+		text-align: center;
+		font-size: 1.0rem;
+		color: lighten($subColor, 20%)
+	}
+}
+
+#titleImage {
+	background-color: #F9F8CD;
+	margin-bottom: 10px;
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+#navigation {
+	#navbar {
+		margin: 10px 0;
+		width: 100%;
+		&:after {
+				clear: both;
+		}
+		ul:after {
+			clear: both;
+		}
+		li {
+			float: left;
+			width: 20%;
+			height: 50px;
+			background-color: $baseColor;
+			a {
+				display: block;
+				width: 100%;
+				height: 50px;
+			}
+		}
+		#navTop {
+			a {
+				@include bgiPng(navTop);
+				background-size: auto 50px;
+				background-position: center center;
+			}
+		}
+		#navInfo {
+			display: block;
+			cursor: pointer; //リンクでないのでポインタを出してあげる
+			@include bgiPng(navInfo);
+			background-size: auto 50px;
+			background-position: center center;
+		}
+		#navInfo.open {//スペースを入れないことでopenクラス付きidという意味に
+			@include bgiPng(navInfoH);
+			background-size: auto 50px;
+			background-position: center center;
+		}
+		#navRSS {
+			a {
+				@include bgiPng(navRSS);
+				background-size: auto 50px;
+				background-position: center center;
+			}
+		}
+		#navPC {
+			a {
+				@include bgiPng(navPC);
+				background-size: auto 50px;
+				background-position: center center;
+			}
+		}
+		#navSearch span {
+			width: 100%;
+			height: 50px;
+			display: block;
+			cursor: pointer; //リンクでないのでポインタを出してあげる
+			@include bgiPng(navSearch);
+			background-size: auto 50px;
+			background-position: center center;
+		}
+		#navSearch span.open {//スペースを入れないことでopenクラス付きidという意味に
+			@include bgiPng(navSearchH);
+			background-size: auto 50px;
+			background-position: center center;
+		}
+
+		.infos {
+			height: 0;
+			width: 100%;
+			margin: 60px 0 0 0;
+			position: relative;
+			li {
+				background-color: #efffd9;
+				height: 0;
+				width: 100%;
+				border-radius: 5px;
+				position: absolute;
+				top: 0;
+				z-index: 2;
+				a {
+					height: 100%;
+					width: 100%;
+				}
+			}
+			.navAbout {
+				@each $prefix in $prefixList {
+					#{$prefix}transition: 0.1s ease-in-out;
+				}
+				@include bgiPng(navAbout);
+				background-size: auto 48px;
+				background-position: center center;
+			}
+			.navSNS {
+				@each $prefix in $prefixList {
+					#{$prefix}transition: 0.2s ease-in-out;
+				}
+				@include bgiPng(navSNS);
+				background-size: auto 48px;
+				background-position: center center;
+			}
+			.navPrivacy {
+				@each $prefix in $prefixList {
+					#{$prefix}transition: 0.3s ease-in-out;
+				}
+				@include bgiPng(navPrivacy);
+				background-size: auto 48px;
+				background-position: center center;
+			}
+			.navContact {
+				@each $prefix in $prefixList {
+					#{$prefix}transition: 0.4s ease-in-out;
+				}
+				@include bgiPng(navContact);
+				background-size: auto 48px;
+				background-position: center center;
+			}
+			&:after {
+				clear: both;
+			}	
+		}
+		.open .navAbout {
+			height: 50px;
+		}
+		.open .navSNS {
+			height: 50px;
+			top: 50px;
+		}
+		.open .navPrivacy {
+			height: 50px;
+			top: 100px;
+		}
+		.open .navContact {
+			height: 50px;
+			top: 150px;
+		}
+		
+		
+		#search {
+			margin: 10px 0 0 -250%;
+			padding: 0 10px 0 0;
+			width: 320%;
+			#textField {
+				display: none;
+				background-color: $baseColor;
+				width: 100%;
+				height: 0;
+				height: 32px;
+				border-radius: 8px;
+				border: 1px solid $tintColor;
+				box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .5);
+			}
+		}
+		.free {
+			clear: both;
+			display: none;
+			height: 50px;
+		}
+	}
+	
+	#breadCrumb {
+		clear: both;
+		font-size: 1.2rem;
+		margin: 10px 4px;
+		li {
+			display: inline;
+			a {
+				margin-right: 10px;
+			}
+		}
+	}
+}
+
+
+#content {
+	margin: 10px 0 0 0;
+	
+	.jaggedUpside {
+		@include jagged15($subColor, $baseColor);
+	}
+	.jaggedUpsideDown {
+		margin: -10px 0 0 0;
+		@include jagged15($baseColor, $subColor);
+	}
+	.sideGaggedHead {
+		@include jagged15($subColor, lighten($subColor, 10%));
+	}
+	.sideGaggedTail {
+		@include jagged15(lighten($subColor, 10%), $subColor);
+		margin: -10px 0 0 0;
+	}
+	
+	.post {
+		background-color: $baseColor;
+		
+		
+		.entryHeader {
+			padding: 10px 10px 20px 10px;
+			.lastModify {
+				font-family: $codeFont;
+				font-size: 1.0rem;
+				text-align: right;
+				margin: 0 0 15px 0;
+			}
+			.date {
+				time, span {
+					position: relative;
+					background-color: $tintColor;
+					font-family: $codeFont;
+					font-size: 1.6rem;
+					color: $baseColor;
+					margin: 0 0 0 -10px;//親のpadding分
+					padding: 8px 0 8px 20px;
+					&:after {
+						content: "";
+						position: absolute;
+						top: 0;
+						right: -36px;
+						height: 0;
+						width: 0;
+						border: 18px solid $tintColor;
+						border-right-color: transparent;
+					}
+				}
+			}
+			
+			.category {
+				margin: 20px 0 0 30px;
+				font-size: 1.3rem;
+				line-height: 20px;
+				position: relative;
+				&:before {
+					content: "";
+					position: absolute;
+					left: -30px;
+					top: -2px;
+					height: 20px;
+					width: 25px;
+					@include bgiPng(iconCate);
+				}
+			}
+			.tag {
+				margin: 10px 0 15px 30px;
+				font-size: 1.1rem;
+				line-height: 21px;
+				position: relative;
+				&:before {
+					content: "";
+					position: absolute;
+					left: -33px;
+					top: -2px;
+					height: 23px;
+					width: 30px;
+					@include bgiPng(iconTag);
+				}
+				a {
+					padding: 0 10px;
+					border: 1px solid $titleColor;
+					border-radius: 15px;
+					margin: 0 8px 8px 0;
+					display: inline-block;
+					color: $baseColor;
+					background-color: $subColor;
+				}
+			}
+			h1 {
+				font-size: 1.8rem;
+				a {
+					color: $textColor;
+				}
+			}
+		}
+		
+		.entryBody {}
+		
+		.fbpLike {
+			width: 300px;
+			margin: 0 auto 20px auto;
+			color: #646464;
+			font-size: 1.4rem;
+			text-align: center;
+		}
+		.relation {
+			margin: 40px 0 0 0;
+			h1 {
+				position: relative;
+				background-color: #9fd882;
+				font-size: 1.4rem;
+				color: $baseColor;
+				margin: 0 0 15px 0;
+				padding: 7px 0 7px 10px;
+				width: 270px;
+				&:after {
+					content: "";
+					position: absolute;
+					top: 0;
+					right: -33px;
+					height: 0;
+					width: 0;
+					border: 18px solid #9fd882;
+					border-right-color: transparent;
+				}
+			}
+			.cate {
+				font-family: $mixcodeFont;
+				margin: 0 0 0 10px;
+				color: $tintColor;
+			}
+			.wrap8title {
+				margin: 6px 0 10px 0;
+				border-bottom:1px solid lighten($tintColor, 20%);
+				.linkBox {
+					clear: both;
+					width: 93%;
+					height: 80px;
+					overflow: hidden;
+					border-top:1px solid lighten($tintColor, 20%);
+					padding: 0 7% 0 0;
+					@include bgiPng(spCell);
+					background-size: auto 100%;
+					background-position: right center;
+					.thumb {
+						width: 100px;
+						height: 80px;
+						overflow: hidden;
+						float: left;
+						margin: 0 10px 0 0;
+					}
+					.date {
+						text-align: right;
+						font-family: $codeFont;
+						font-size: 1.1rem;
+						color: $textColor;
+					}
+					.title {
+						font-size: 1.3rem;
+						word-break: break-all;
+						padding: 2px 3px;
+					}
+				}
+			}
+			ul {
+				margin: 20px auto 10px auto;
+				width: 282px;
+			}
+			li {
+				font-size: 1.2rem;
+				text-align: center;
+				line-height: 33px;
+				margin: 0 0 10px 0;
+				
+				a {
+					display: block;
+					background-color: lighten($tintColor, 20%);
+					color: $baseColor;
+					width: 280px;
+					height: 30px;
+					border: 1px solid $tintColor;
+					border-radius: 15px;
+					
+					&:hover {
+						background-color: lighten($subColor, 20%);
+						color: $titleColor;
+					}
+				}
+			}	
+		}
+		.entryFooter {
+			@extend .entryHeader;
+			border-top: 2px dotted $subColor;
+			time{
+				margin: 10px 0 0 30px;
+				font-size: 1.3rem;
+				line-height: 20px;
+				font-family: $codeFont;
+				position: relative;
+				&:before {
+					content: "";
+					position: absolute;
+					left: -28px;
+					top: 2px;
+					height: 20px;
+					width: 20px;
+					@include bgiPng(iconTime);
+				}
+			}
+			.lastModify {
+				color: lightn($textColor, 15%);
+				text-align: left;
+				margin: 0 0 0 30px;
+			}
+			.category {
+				margin-top: 10px;
+			}
+			.tag {
+				margin-bottom: 2px;
+			}
+			.commCount {
+				font-size: 1.6rem;
+				font-family: $codeFont;
+				line-height: 24px;
+				margin: 1px 0 0 33px;
+				position: relative;
+				&:before {
+					content: "";
+					position: absolute;
+					left: -31px;
+					height: 24px;
+					width: 27px;
+					@include bgiPng(iconComm);
+				}
+			}
+		}
+	}
+	
+	
+	.about {
+		background-color: $baseColor;
+		padding: 20px 5px 30px 10px;
+		
+		h1 {
+			position: relative;
+			background-color: $tintColor;
+			font-size: 1.7rem;
+			font-family: $codeFont;
+			color: $baseColor;
+			margin: 0 0 15px -10px;
+			padding: 7px 0 7px 25px;
+			width: 175px;
+			
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: -36px;
+				height: 0;
+				width: 0;
+				border: 18px solid $tintColor;
+				border-right-color: transparent;
+			}
+		}
+		dt {
+			color: $tintColor;
+			border-bottom: 1px solid $tintColor;
+		}
+		dd {
+			font-size: 1.4rem;
+			margin: 10px 20px;
+			text-align: justify;
+		}
+		.authorImg {
+			width: 80px;
+			height: 80px;
+			@include bgiPng(profYucovin200);
+			border: 1px solid #ff571a;
+			margin: 20px 20px 15px 20px;
+			float: left;
+		}
+		.author {
+			margin: 30px 0 0 10px;
+			font-family: $codeFont;
+			font-size: 1.9rem;
+			color: $tintColor;
+		}
+		.site {
+			clear: both;
+			font-size: 1.6rem;
+			margin: 30px 0 0 10px;
+		}
+		.follow {
+			border-top: 2px dotted $subColor;
+			padding: 20px 0 0 0;
+			margin: 40px 10px 0 10px;
+			font-size: 1.3rem;
+		}
+		.whisper {
+			font-size: 1.0rem;
+		}
+		.notice {
+			clear: both;
+			width: 90%;
+			margin: 0 auto;
+			font-size: 1.0rem;
+			color: #706f6f;
+		}
+		.more {
+			font-size: 1.4rem;
+			text-align: center;
+			line-height: 33px;
+			width: 100%;
+			margin: 20px auto 0 auto;
+			
+			a {
+				display: block;
+				background-color: lighten($tintColor, 20%);
+				color: $baseColor;
+				width: 80%;
+				height: 32px;
+				margin: 0 auto;
+				border: 1px solid $tintColor;
+				border-radius: 16px;
+				
+				&:hover {
+					background-color: lighten($subColor, 20%);
+					color: $titleColor;
+				}
+			}
+		}
+	}
+	
+	#comments {
+		background-color: $baseColor;
+		padding: 10px 5px 20px 8px;
+		word-wrap: break-word;
+		h1 {
+			font-family: $codeFont;
+			text-align: right;
+			font-size: 1.0rem;
+			color: $subColor;
+		}
+		h2 {
+			position: relative;
+			background-color: $tintColor;
+			font-family: $codeFont;
+			font-size: 1.7rem;
+			color: $baseColor;
+			margin: 0 0 10px -8px;
+			padding: 7px 0 7px 25px;
+			
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: -36px;
+				height: 0;
+				width: 0;
+				border: 18px solid $tintColor;
+				border-right-color: transparent;
+			}
+		}
+		.show {
+			margin: 0 0 30px 0;//コメント表示欄がある場合コメントフォームとの間を空けるため
+			h2 {
+				width: 255px;
+			}
+			.thisPost {
+				font-family: $kakuFont;
+				font-size: 1.2rem;
+				color: $tintColor;
+			}
+			.comment-author {
+				clear: both;
+				font-size: 1.4rem;
+				margin: 10px 0;
+				.says {
+					font-family: $kakuFont;
+					font-size: 1.3rem;
+					color: gray;
+				}
+			}
+			.authorImg {
+				float: left;
+				width: 60px;
+				height: 60px;
+				margin: 0 30px 0 0;
+			}
+			.textArea {
+				float: left;
+				border: 1px solid $tintColor;
+				border-radius: 10px;
+				position: relative;
+				background-color: #fffcfc;
+				display: block;
+				position: relative;
+				width: 60%;
+				padding: 5px 7px 12px 15px;
+				
+				&:before {
+				content: "";
+				position: absolute;
+				top: 25px;
+				left: -30px;
+				height: 0;
+				width: 0;
+				border: 15px solid $tintColor;
+				border-top-color: transparent;
+				border-bottom-color: transparent;
+				border-left-color: transparent;
+				}
+				&:after {
+				content: "";
+				position: absolute;
+				top: 25px;
+				left: -29px;
+				height: 0;
+				width: 0;
+				border: 15px solid #fffcfc;
+				border-top-color: transparent;
+				border-bottom-color: transparent;
+				border-left-color: transparent;
+				}
+				
+				.comment-meta {
+					text-align: right;
+					font-family: $codeFont;
+					font-size: 1.2rem;
+				}
+				.text {
+					font-size: 1.3rem;
+				}
+			}
+			.reply {
+				clear: both;
+				float: right;
+				margin: 10px 15px 30px 0;
+				font-size: 1.1rem;
+			}
+			li {
+				border-bottom: 3px dashed lighten($textColor, 60%);
+			}
+			.children {
+				margin: 0 0 0 15px;
+				li {
+				border-bottom: none;//子要素の線なし
+				}
+			}
+		}
+		.submit {
+			h2 {
+				width: 140px;
+			}
+			.message {
+				color: $tintColor;
+				font-size: 1.1rem;
+				margin: 0 8px 30px 10px;
+			}
+			h3 {
+				font-size: 1.3rem;
+				margin: 0 0 0 10px;
+				color: gray;
+			}
+			.jet {
+				width: 90%;
+				margin: 0 auto;
+			}
+			.notice {
+				padding: 20px;
+				h4 {
+				font-size: 1.4rem;
+				border-left: 14px solid #ff9d9d;
+				border-radius: 10px;
+				padding: 0 0 0 8px;
+				color: #ff9d9d;
+				}
+				dt {
+					border-bottom: 1px solid #ff9d9d;
+					margin: 20px 0 10px 0;
+					font-size: 1.3rem;
+				}
+				dd {
+					font-size: 1.2rem;
+					color: gray;
+					margin: 10px 0;
+				}
+			}
+		}
+	}
+	
+	
+	.appeal {
+		background-color: lighten($subColor, 10%);
+		padding: 10px 8px 20px 10px;
+		h1 {
+			font-size: 1.4rem;
+			color: $tintColor;
+			margin: 20px 0 15px 0;
+			border-bottom: 1px dotted $tintColor;
+		}
+		p {
+			font-size: 1.2rem;
+			text-align: justify;
+		}
+	}
+	.myApp {
+		img {
+			margin: 10px 20px 10px 0;
+			border-radius: 15px;
+			float: left;
+		}
+	}
+	.appDojo {
+		.dojoBanner {
+			border-radius: 15px;
+			width: 300px;
+			height: 250px;
+			margin: 20px auto 0 auto;
+			background-color: rgba(255, 253, 233, 0.2);
+			border: 1px dotted $tintColor;
+		}
+	}
+	.edgeRank {
+		img {
+			margin: 10px 20px 10px 0;
+			float: left;
+		}
+	}
+	.support {
+		img {
+			margin: 5px 0px 10px 20px;
+			float: right;
+		}
+	}
+	
+}
+
+#footernav {
+	margin: 30px auto 0px auto;
+	
+	#catelistPlus{
+		margin: 0 0 30px 0;
+		ul{
+			li {
+				width: 49.5%;
+				height: 50px;
+				float: left;
+				border-top: 1px solid lighten($tintColor, 20%);
+				border-left: 1px solid lighten($tintColor, 20%);
+				background-color: $baseColor;
+				a{
+					display: block;
+					font-size: 1.4rem;
+					font-family: $codeFont;
+					line-height: 1;
+					color: $titleColor;
+				}
+			}
+			.right {
+				border-right: 1px solid lighten($tintColor, 20%);
+			}
+			.short a{
+				width: 82%;
+				height: 22px;
+				padding: 18px 8% 10px 10%;
+			}
+			.long a{
+				width: 82%;
+				height: 30px;
+				padding: 10px 8% 10px 10%;
+			}
+			.illustTag a{
+				font-size: 1.3rem;
+			}
+			
+			/* 複数の背景画像はまとめて書く。バラバラだと最後のしか適用されない*/
+			.cat a{
+				background-image: url(./images/spCell.png), url(./images/iconCate.png);
+				background-repeat: no-repeat, no-repeat;
+				background-size: auto 100%, 20px auto;
+				background-position: right center, 2px 3px;
+			}
+			.tag a{
+				background-image: url(./images/spCell.png), url(./images/iconTag.png);
+				background-repeat: no-repeat, no-repeat;
+				background-size: auto 100%, 20px auto;
+				background-position: right center, 2px 1px;
+			}
+	
+			&:after {
+				clear: both;
+			}
+		}
+		.allTags {
+			clear: both;
+			width: 99.2%;
+			height: 40px;
+			border: 1px solid lighten($tintColor, 20%);
+			background-color: $baseColor;
+			a {
+				display: block;
+				width: 100%;
+				height: 20px;
+				padding: 10px 0 10px 0;
+				text-align: center;
+				font-family: $codeFont;
+				font-size: 1.3rem;
+				background-image: url(./images/spCell.png), url(./images/iconTag.png);
+				background-repeat: no-repeat, no-repeat;
+				background-size: auto 120%, 20px auto;
+				background-position: right center, 2px 1px;
+			}
+		}
+	}
+	
+	
+	#fnavbar {
+		margin: 10px 0;
+		width: 100%;
+		&:after {
+			clear: both;
+		}
+		ul:after {
+			clear: both;
+		}
+		li {
+			float: left;
+			width: 20%;
+			height: 50px;
+			background-color: $baseColor;
+			a {
+				display: block;
+				width: 100%;
+				height: 50px;
+			}
+		}
+		#navTop {
+			a {
+				@include bgiPng(navTop);
+				background-size: auto 50px;
+				background-position: center center;
+			}
+		}
+		#navInfo {
+			display: block;
+			cursor: pointer; //リンクでないのでポインタを出してあげる
+			@include bgiPng(navInfo);
+			background-size: auto 50px;
+			background-position: center center;
+		}
+		#navInfo.open {
+			@include bgiPng(navInfoH);
+			background-size: auto 50px;
+			background-position: center center;
+		}
+		#navRSS {
+			a {
+				@include bgiPng(navRSS);
+				background-size: auto 50px;
+				background-position: center center;
+			}
+		}
+		#navPC {
+			a {
+				@include bgiPng(navPC);
+				background-size: auto 50px;
+				background-position: center center;
+			}
+		}
+		#toPageTop {
+			a {
+				@include bgiPng(navPageTop);
+				background-size: auto 50px;
+				background-position: center center;
+				cursor: pointer; //ポインタを出してあげる
+			}
+		}
+
+		.infos {
+			height: 0;
+			width: 100%;
+			margin: -10px 0 0 0;
+			position: relative;
+			li {
+				background-color: #efffd9;
+				height: 0;
+				width: 100%;
+				border-radius: 5px;
+				position: absolute;
+				top: 0;
+				a {
+					height: 100%;
+					width: 100%;
+				}
+			}
+			.navAbout {
+				@each $prefix in $prefixList {
+					#{$prefix}transition: 0.4s ease-in-out;
+				}
+				@include bgiPng(navAbout);
+				background-size: auto 48px;
+				background-position: center center;
+			}
+			.navSNS {
+				@each $prefix in $prefixList {
+					#{$prefix}transition: 0.3s ease-in-out;
+				}
+				@include bgiPng(navSNS);
+				background-size: auto 48px;
+				background-position: center center;
+			}
+			.navPrivacy {
+				@each $prefix in $prefixList {
+					#{$prefix}transition: 0.2s ease-in-out;
+				}
+				@include bgiPng(navPrivacy);
+				background-size: auto 48px;
+				background-position: center center;
+			}
+			.navContact {
+				@each $prefix in $prefixList {
+					#{$prefix}transition: 0.1s ease-in-out;
+				}
+				@include bgiPng(navContact);
+				background-size: auto 48px;
+				background-position: center center;
+			}
+			&:after {
+				clear: both;
+			}	
+		}
+		.open .navAbout {
+			height: 50px;
+			top: -200px;
+		}
+		.open .navSNS {
+			height: 50px;
+			top: -150px;
+		}
+		.open .navPrivacy {
+			height: 50px;
+			top: -100px;
+		}
+		.open .navContact {
+			height: 50px;
+			top: -50px;
+		}
+
+		
+	}
+
+	
+}
+
+
+#footer {
+	background-color: $tintColor;
+	padding: 10px 0;
+	#copyright {
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 1.2rem;
+		line-height: 1.2;
+		color: lighten($subColor, 20%);
+		a {
+			color: $baseColor;
+			&:hover {
+				color: $textColor;
+			}
+		}
+	}
+}
+
+
+
+#floatNav {
+
+		position: fixed;
+		left: 30px;
+		bottom: 40px;
+		width: 50px;//大きめにしてこっちをクリックイベント
+		height: 50px;
+		cursor: pointer; //リンクでないのでポインタを出してあげる
+		ul{
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			width: 30px;//表示はこちらで小さく邪魔にならないように
+			height: 30px;
+			border-radius: 50%;
+			box-shadow: 1px 1px 4px rgba(0, 0, 0, .7);
+			background-color: rgba(255, 255, 255, 0.5);
+			@include bgiPng(flortNavPlus);
+			@each $prefix in $prefixList {
+				#{$prefix}transform: rotate(45deg);//45度回転
+			}
+			@each $prefix in $prefixList {
+				#{$prefix}transition: 0.6s ease-in-out;//liの動きの総時間
+			}
+		}
+		
+		
+		li {
+			position: absolute;
+			top: -10px;//親要素ulの中心に。実際に見せたいサイズで合わせておく
+			left: -10px;//親要素ulの中心に。実際に見せたいサイズで合わせておく
+			width: 50px;//最終的に見せたいサイズ。それを1としたいので
+			height: 50px;
+			opacity: 1; //透明にしておくと自然だけど、ここは動きを見せたいので1で。
+			@each $prefix in $prefixList {
+				#{$prefix}transform: rotate(-540deg) scale(0.001);//くるんとさせたいので回転させておく 0.1%のサイズにしておく
+			}
+			
+			a {
+				background-color: #f2ffda;
+				display: block;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				box-shadow: 1px 1px 4px rgba(0,0,0, .5);
+				&:hover {
+					background-color: #ffecdc;
+				}
+			}
+		}
+		.iphone {
+			@each $prefix in $prefixList {
+				#{$prefix}transition-delay: 0.0s;//動きの設定。各カテゴリでずらすため
+			}
+			@each $prefix in $prefixList {
+				#{$prefix}transition: 0.6s ease-in-out;
+			}
+			a {
+				@include bgiPng(cateiPhone);
+				&:hover {
+					@include bgiPng(cateiPhoneH);
+				}
+			}
+		}
+		
+		.mac {
+			@each $prefix in $prefixList {
+				#{$prefix}transition-delay: 0.1s;//動きの設定。各カテゴリでずらすため
+			}
+			@each $prefix in $prefixList {
+				#{$prefix}transition: 0.5s ease-in-out;
+			}
+			a {
+				@include bgiPng(cateMac);
+				&:hover {
+					@include bgiPng(cateMacH);
+				}
+			}
+		}
+		
+		.apple {
+			@each $prefix in $prefixList {
+				#{$prefix}transition-delay: 0.2s;//動きの設定。各カテゴリでずらすため
+			}
+			@each $prefix in $prefixList {
+				#{$prefix}transition: 0.4s ease-in-out;
+			}
+			a {
+				@include bgiPng(cateApple);
+				&:hover {
+					@include bgiPng(cateAppleH);
+				}
+			}
+		}
+		.dev {
+			@each $prefix in $prefixList {
+				#{$prefix}transition-delay: 0.3s;//動きの設定。各カテゴリでずらすため
+			}
+			@each $prefix in $prefixList {
+				#{$prefix}transition: 0.3s ease-in-out;
+			}
+			a {
+				@include bgiPng(cateDev);
+				&:hover {
+					@include bgiPng(cateDevH);
+				}
+			}
+		}
+		
+		.diary {
+			@each $prefix in $prefixList {
+				#{$prefix}transition-delay: 0.4s;//動きの設定。各カテゴリでずらすため
+			}
+			@each $prefix in $prefixList {
+				#{$prefix}transition: 0.2s ease-in-out;
+			}
+			a {
+				@include bgiPng(cateDiary);
+				&:hover {
+					@include bgiPng(cateDiaryH);
+				}
+			}
+		}
+	
+	
+	/* クリックイベント発動後 top,leftはul基準するべく全部-10pxしてある*/
+	.open .iphone {
+		top: -155px;
+		left: -10px;
+		opacity: 1;
+		@each $prefix in $prefixList {
+			#{$prefix}transform: scale(1.0) rotate(0deg);
+		}
+	}
+	.open .mac {
+		top: -145px;
+		left: 46px;
+		opacity: 1;
+		@each $prefix in $prefixList {
+			#{$prefix}transform: scale(1.0) rotate(0deg);
+		}
+	}
+	.open .apple {
+		top: -110px;
+		left: 90px;
+		opacity: 1;
+		@each $prefix in $prefixList {
+			#{$prefix}transform: scale(1.0) rotate(0deg);
+		}
+	}
+	.open .dev {
+		top: -65px;
+		left: 124px;
+		opacity: 1;
+		@each $prefix in $prefixList {
+			#{$prefix}transform: scale(1.0) rotate(0deg);
+		}
+	}
+	.open .diary {
+		top: -10px;
+		left: 135px;
+		opacity: 1;
+		@each $prefix in $prefixList {
+			#{$prefix}transform: scale(1.0) rotate(0deg);
+		}
+	}
+	ul.open {
+		@each $prefix in $prefixList {
+			#{$prefix}transform: rotate(0deg);//45度回転
+		}
+		background-color: white;
+	}
+}
+
+
+
+/* index用... */
+.boxPost {
+	background-color: $baseColor;
+	padding: 30px 10px 10px 10px;
+	.date {
+		time {
+			position: relative;
+			background-color: $tintColor;
+			font-family: $codeFont;
+			font-size: 1.6rem;
+			color: $baseColor;
+			margin: 0 0 0 -10px;//親のpadding分
+			padding: 8px 0 8px 20px;
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: -36px;
+				height: 0;
+				width: 0;
+				border: 18px solid $tintColor;
+				border-right-color: transparent;
+			}
+		}
+	}
+	
+	.category {
+		margin: 20px 0 0 30px;
+		font-size: 1.1rem;
+		line-height: 20px;
+		position: relative;
+		&:before {
+			content: "";
+			position: absolute;
+			left: -30px;
+			top: -2px;
+			height: 20px;
+			width: 25px;
+			@include bgiPng(iconCate);
+		}
+	}
+	
+	.tag {
+		clear: both;
+		margin: 8px 0 10px 30px;
+		font-size: 1.0rem;
+		line-height: 20px;
+		position: relative;
+		&:before {
+			content: "";
+			position: absolute;
+			left: -33px;
+			top: -2px;
+			height: 20px;
+			width: 26px;
+			@include bgiPng(iconTag);
+		}
+		a {
+			padding: 0 10px;
+			border: 1px solid $titleColor;
+			border-radius: 15px;
+			margin: 0 8px 8px 0;
+			display: inline-block;
+			color: $baseColor;
+			background-color: $subColor;
+		}
+	}
+	
+	.titleBox {
+		margin: 10px 0;
+		.thumb {
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			margin: 0 0 10px 0;
+		}
+		h1 {
+			font-size: 1.6rem;
+			color: $textColor;
+		}
+	}	
+	.morelink {
+		font-size: 1.5rem;
+		font-family: $codeFont;
+		text-align: right;
+		a {
+			color: lighten($tintColor, 10%);
+		}
+	}
+}
+
+
+/* ad etc... */
+.ad300 {
+	width: 300px;
+	height: 250px;
+	margin: 5px auto;
+}
+.ad320 {
+	width: 320px;
+	height: 100px;
+	margin: 5px auto;
+}
+
+/* share button */
+.sharePlease {
+	margin: 20px auto;
+	width: 280px;
+	text-align: center;
+	font-size: 1.4rem;
+	color: $tintColor;
+	border-left:20px solid $subColor;;
+	border-right:20px solid $subColor; 
+}
+.share {
+	margin: 18px auto;
+	width: 93%;//320pxだとすると297.6px、5つの要素の幅+(2pxx5)=296
+	.sns {
+		float: left;
+		line-height: 1;
+	}
+	.twitter {//57x62px 幅296px対しての割り当て57+2=59で、20%(19.99
+		// width: 57px;
+		width: 20%;
+		text-align: center;
+	}
+	.facebook {//69x61px 幅296px対しての割り当て69+2=71で、24%(23.9 見た目調整で23%にする
+		// width: 69px;
+		width: 23%;
+		text-align: center;
+	}
+	.googleplus {//50x60px 幅296px対しての割り当て50+2=52で、17%(17.5 見た目調整で18%にする
+		// width: 50px;
+		width: 18%;
+		text-align: center;
+	}
+	.hatebu {//50x50px 幅296px対しての割り当て50+2=52で、17%(17.5 見た目調整で18%にする
+		// width: 50px;
+		width: 18%;
+		text-align: center;
+	}
+	.pocket {//60x63px 幅296px対しての割り当て60+2=62で、21%(20.9
+		// width: 60px;
+		width: 21%;
+		text-align: center;
+	}
+}
+
+.followMeSet {
+	margin: 30px 0 5px 8px;
+	li {
+		float: left;
+		margin: 0 5px 5px 0;
+		a {
+			width: 70px;
+			height: 70px;
+			display: block;
+			background-color: white;
+			border: 1px solid $tintColor;
+			border-radius: 10px;
+			box-shadow: 1px 1px 2px rgba(0,0,0, .5);
+			
+			&:hover {
+				box-shadow: inset 1px 1px 3px rgba(0, 0, 0, .7);
+				background-color: #fff0ec;
+			}
+		}
+	}
+	.rss {
+		a {
+			@include bgiPng(followRss);
+			&:hover {
+				@include bgiPng(followRssH);
+			}
+		}
+	}
+	.feedly {
+		a {
+			@include bgiPng(followFeedly);
+			&:hover {
+				@include bgiPng(followFeedlyH);
+			}
+		}
+	}
+	.twitter {
+		a {
+			@include bgiPng(followTwitter);
+			&:hover {
+				@include bgiPng(followTwitterH);
+			}
+		}
+	}
+	.facebook {
+		a {
+			@include bgiPng(followFacebook);
+			&:hover {
+				@include bgiPng(followFacebookH);
+			}
+		}
+	}
+	.googlePlus {
+		a {
+			@include bgiPng(followGooglePlus);
+			&:hover {
+				@include bgiPng(followGooglePlusH);
+			}
+		}
+	}
+}
+
+
+/* for single 前後post navi */
+.postNav {
+	width: 95%;
+	margin: 20px auto;
+	font-size: 1.2rem;
+	
+	/* margin: 0 0 40px 0; */
+	
+	.prePost {
+		a{
+			width: 60%;
+			height: 40px;
+			color: $baseColor;
+			overflow: hidden;
+			float: left;
+			background-image: url(./images/postNew.png);
+			background-repeat: no-repeat;
+			background-size: auto 40px;
+			background-position: left top;
+			padding: 0 0 0 45px;
+			margin: 0 0 10px 0;
+			&:hover {
+				background-image: url(./images/postNewH.png);
+				background-repeat: no-repeat;
+				background-size: auto 40px;
+				background-position: left top;
+				color: $tintColor;
+			}
+		}
+	}
+	.nextPost {
+		a{
+			width: 60%;
+			height: 40px;
+			color: $baseColor;
+			overflow: hidden;
+			float: right;
+			text-align: right;
+			background-image: url(./images/postOld.png);
+			background-repeat: no-repeat;
+			background-size: auto 40px;
+			background-position: right top;
+			padding: 0 45px 0 0;
+			&:hover {
+				background-image: url(./images/postOldH.png);
+				background-repeat: no-repeat;
+				background-size: auto 40px;
+				background-position: right top;
+				color: $tintColor;
+			}
+		}
+	}
+}
+
+
+/* for archive pagination */
+.pages {
+	font-family: $codeFont;
+	font-size: 1.2rem;
+	margin: 10px 10px 0 0;
+	text-align: right;
+	color: $baseColor;
+}
+.pagination {
+	font-size: 1.4rem;
+	text-align: center;
+	font-family: $codeFont;
+	margin: 3px 0 20px 0;
+	height: 30px;
+	line-height: 28px;
+	
+	a {
+		display: inline-block;//これをしないとサイズが反映されない
+		width: 28px;
+		height: 28px;
+		background-color: $baseColor;
+		border: 1px solid $tintColor;
+		border-radius: 50%;
+		margin: 0 2px;
+		&:hover {
+			box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.7);
+		}
+		
+	}
+	.current {
+		display: inline-block;
+		width: 28px;
+		height: 28px;
+		border: 1px solid $tintColor;
+		border-radius: 50%;
+		margin: 0 2px;
+		background-color: lighten($tintColor, 20%);
+		color: $baseColor;
+	}
+}
+
+
+/* for Archive page */
+.kind {
+	margin: 0 0 10px 0;
+	font-family: $mixcodeFont;
+	color: $tintColor;
+	p {
+		font-size: 1.4rem;
+		padding: 0 0 0 10px;
+		margin: 0 0 13px 0;
+	}
+	.aRibbon {
+		font-size: 1.5rem;
+		padding: 10px 10px 10px 12px;
+		background-color: $baseColor;
+		position: relative;
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: -40px;
+			height: 0;
+			width: 0;
+			border: 20px solid $baseColor;
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+			border-right-color: transparent;
+		}
+	}
+}
+
+
+
+
+/* for about page */
+.necoOffice {
+	.prof {
+		margin: 30px 0;
+		.image{
+			float: left;
+			width: 120px;
+			height: 120px;
+			margin: 45px 10px 10px 0;
+			border-radius: 50%;
+			// border: 1px solid $textColor;
+		}
+		h1 {
+			font-size: 1.7rem;
+			text-align: right;
+		}
+		.name {
+			text-align: right;
+			font-family: $codeFont;
+			font-size: 1.2rem;
+			margin: 0 0 8px 0;
+			color: $tintColor;
+			border-top: 1px dotted $tintColor;
+		}
+		.machine {
+			font-family: $codeFont;
+			position: relative;
+			margin: 0 0 8px 160px;
+			text-align: left;
+			&:before {
+				content: "";
+				position: absolute;
+				left: -35px;
+				top: 0;
+				height: 20px;
+				width: 28px;
+				@include bgiPng(iconMachine);
+			}
+		}
+		.phone {
+			font-family: $codeFont;
+			position: relative;
+			margin: 0 0 8px 160px;
+			text-align: left;
+			&:before {
+				content: "";
+				position: absolute;
+				left: -35px;
+				top: 0;
+				height: 20px;
+				width: 28px;
+				@include bgiPng(iconPhone);
+			}
+		}
+		.explain {
+			clear: both;
+			
+		}
+	}
+	.yucoImage {
+		@include bgiPng(aboutYuco);
+	}
+	.necoImage {
+		@include bgiPng(aboutNeco);
+	}
+	.ddImage {
+		@include bgiPng(aboutDD);
+	}
+	.office {
+		h1{
+			font-size: 2.0rem;
+			margin: 10px 0 0 0px;
+			text-align: right;
+			border-bottom: 3px double $subColor;
+		}
+		img {
+			margin: 30px 10px 5px 0;
+			float: left;
+			width: 60%;
+		}
+	}
+}
+
+
+/* for all post title page */
+.allTitle {
+	padding: 0 0 30px 0;
+	.date {
+		margin: 20px 0 0 0;
+	}
+	h2 {
+		margin: 60px 0 20px 0;
+		color: $tintColor;
+		font-family: $codeFont;
+		font-size: 2.0rem;
+		border-bottom: 1px dotted $tintColor;
+	}
+	.dayTitle {
+		margin: 20px 0;
+		.miniThumbnail {
+			width: 50px;
+			height: 50px;
+			float: left;
+			overflow: hidden;
+			margin-right: 15px;
+			margin-top: 5px;
+		}
+		.day {
+			font-family: $codeFont;
+		}
+	}
+}
+
+
+/* for contact page */
+.contact_form {
+	margin: 0 10px 0 0;
+	padding: 20px 40px;
+	border: 1px solid #b9b9b9;
+	background-color: #ffffff;
+	background-image: url(./images/graphSkyBlue.png);
+	background-size: 20px 20px;
+
+}
+
+
+
+
+
+/* googleカスタム検索 */
+#cse {/* 最初のlodingのため*/
+	line-height: 32px;
+	font-size: 1.5rem;
+	color: $subColor;
+	margin: 0 0 0 3px;
+}
+/* 検索窓の外 */
+.cse .gsc-control-cse,
+.gsc-control-cse {
+	padding: 0 !important;//custom
+	width: auto;
+	font-family: "Trebuchet MS", sans-serif;
+	background-color: transparent !important;//custom
+	border: none !important;//custom
+}
+/* 窓と検索ボタンの間 */
+.cse table.gsc-search-box td.gsc-input,
+table.gsc-search-box td.gsc-input {
+	padding-right: 6px !important;//custom
+}
+/* Search input field */
+.cse input.gsc-input,
+input.gsc-input {
+	font-family: inherit;
+	font-size: 14px !important;//custom
+	border: none !important;//custom
+	background-color: transparent !important;//custom
+	padding: 0 6px !important;//custom
+	height: 32px;//custom
+	border-radius: 16px !important;//custom
+}
+/* Search button */
+.cse input.gsc-search-button,
+input.gsc-search-button {
+	padding: 0;
+	min-width: 20px !important;//custom
+	margin: 0 !important;//custom
+	cursor: pointer;
+	width: 20px !important;//custom
+	height: 25px !important;//custom
+	border: none !important;//custom
+	background-color: transparent !important;//custom
+	@include bgiPng(searchH);//custom
+	text-indent: 999px;//custom
+	overflow: hidden;
+ }
+
+
+
+
+/* for Single */
+.entryBody {
+	margin: 20px 14px 0 14px;
+	text-align: justify;
+	position: relative;
+	z-index: 0;
+	font-size: 1.4rem;
+	
+	
+	/* スマフォ特有な設定 */
+	word-wrap: break-word;
+	line-height: 1.6em; //スマフォは行間が少なめの方が見やすい
+	
+	/* img size */
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	/* tableはみ出し回避 */
+	table {
+		word-break:break-all;
+	}
+	/* youtubeのビデオのはみ出し回避 */
+	.video_con {
+		position: relative;
+	    padding-bottom: 56.25%;
+	    padding-top: 30px;
+	    height: 0;
+	    overflow: hidden;
+	    margin-top: 20px;
+	    margin-bottom: 20px;
+	}
+	.video_con iframe {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+	/* endスマフォ特有な設定 */
+	
+	h2 {
+		font-size: 1.6rem;
+		color: $baseColor;
+		margin: 70px -14px 30px -10px;
+		padding: 4px 15px 4px 40px;
+		background-color: $tintColor;
+		border-radius: 22px 0 0 22px;
+		line-height: 1.6;
+		position: relative;
+		&:before {
+		    position: absolute;
+		    content: "";
+		    top: 50%;
+		    margin-top: -8px;
+		    left: 10px;
+		    height: 16px;
+			width: 16px;
+			background-color: $baseColor;
+			border-radius: 50%;
+			box-shadow: 1px 1px 1px #777 inset;
+		}
+	}
+	h3 {
+		font-size: 1.6rem;
+		color: $tintColor;
+		margin: 60px 0 15px 10px;
+		padding: 0 0 0 10px;
+		border-bottom: 1px dotted $tintColor;
+		position: relative;
+		&:before {
+		    position: absolute;
+		    content: "";
+		    top: 0;
+		    left: -5px;
+		    height: 10px;
+			width: 10px;
+			background-color: lighten($tintColor, 20%);
+			@each $prefix in $prefixList {
+				#{$prefix}transform: rotate(45deg);
+			}
+		}
+		&:after {
+			position: absolute;
+		    content: "";
+		    top: 15px;
+		    left: -10px;
+		    height: 8px;
+			width: 8px;
+			background-color: $tintColor;
+			@each $prefix in $prefixList {
+				#{$prefix}transform: rotate(15deg);
+			}
+		}
+	}
+	h4 {
+	    margin: 3rem 0 1rem 0;
+	    border-left: 10px solid $subColor;
+	    padding-left: 1em;
+	    border-radius: 5px 0 0 5px;
+	}
+	ul {
+		margin: 20px;
+		li {
+			font-weight: bold;
+		}
+	}
+
+	p {
+		margin: 26px 0;
+	}
+	.komoji {
+		font-size: 80%;
+	}
+	th { 
+        background-color: lighten($tintColor, 20%); 
+        color: $baseColor;
+        text-align: left; 
+        font-size: 95%; 
+        padding: 10px;
+        border-style: solid;
+        border-width: 1px; 
+        border-color: $tintColor; 
+	}
+	td { 
+        padding: 10px;
+        font-size: 100%; 
+        border-style: solid;
+        border-width: 1px; 
+        border-color: lighten($tintColor, 30%);
+	}
+
+	.kanwa {
+		width: 80%;
+		border-bottom: 2px dotted $subColor;
+		margin: 20px auto;
+	}
+	
+	blockquote {
+		color: #206176;
+		margin: 14px 0;
+		width: 84%;
+		font-size: 1.4rem;
+		padding: 12px 8% 8px 8%;
+		border: 1px solid #b9b9b9;
+		background-color: #ffffff;
+		background-image: url(./images/graphSkyBlue.png);
+		background-size: 20px 20px;
+		position: relative;
+		z-index: auto;
+		&:before {
+			position: absolute;
+			content: "";
+			width: 45%;
+			height: 40px;
+			right: 10px;
+			bottom: 15px;
+			box-shadow: 0 15px 10px #777;
+			@each $prefix in $prefixList {
+				#{$prefix}transform: rotate(4deg);
+			}
+			z-index: -1;
+		}
+		.from {
+			font-style: italic;
+			margin: 22px;
+			text-align: right;
+			font-size: 90%;
+		}
+	}
+	.applink {
+		margin: 14px 0;
+		width: 90%;
+		padding: 12px 5% 8px 5%;
+		border: 1px solid #b9b9b9;
+		background-color: #ffffff;
+		background-image: url(./images/graphSkyBlue.png);
+		background-size: 20px 20px;
+		position: relative;
+		z-index: auto;
+		&:before {
+			position: absolute;
+			content: "";
+			width: 45%;
+			height: 40px;
+			right: 10px;
+			bottom: 15px;
+			box-shadow: 0 15px 10px #777;
+			@each $prefix in $prefixList {
+				#{$prefix}transform: rotate(4deg);
+			}
+			z-index: -1;
+		}
+		.appCheck {
+			margin: 10px 0;
+			width: 250px;
+			height: 56px;
+			border-radius: 10px;
+			border: 1px solid $subColor;
+			background-color: rgba(246, 247, 195, 0.5);
+			@include bgiPng(appCheck);
+		}
+	}
+}
+
+/* AmazonJS */
+.amazonjs_item {
+	background-color: #fffff4 !important;
+}
+
+
+/* 以下投稿共通 */
+/* Alignment画像の配置CSSをWordPressの指定と合わせる */
+.alignnone {
+	margin-left: 1.5em;
+	margin-bottom: 1.5em;
+}
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+	margin-bottom: 1.5em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+	margin-bottom: 1.5em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.5em;
+}
+img.size-full, img.size-large {
+	max-width: 97.5%;
+	width: auto;
+	height: auto;
+}
+img.alignleft, ima.alignright, ima.aligncenter {
+	margin-bottom: 1.5em;
+}
+/* Captionキャプション付き画像のCSSをWordPressの指定と合わせる */
+p img, .wp-caption {
+	margin-top: 0.4em;
+	text-align: center;
+}
+.wp-caption {
+	background-color: #eee;
+	margin-bottom: 1.5em;
+	padding: 5px 0;
+}
+.wp-caption img {
+	display: block;
+	margin: 0 auto;
+}
+.wp-caption .wp-caption-text {
+	font-size: 92.3%;
+	margin: 0;
+	padding: 5px 5px 0 5px;
+}
+
+
+
+/* ~~ MW Theme Switcher on Multi Device Switcher ~~ */
+.pc-switcher {
+	display: none;
+}
+.renderSwitcher {
+	display: none;
+}
