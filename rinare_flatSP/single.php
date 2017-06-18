@@ -65,12 +65,7 @@
 					</aside>
 					
 					<div class="ad300"><?php echo do_shortcode('[gAd_300entry]'); ?></div>
-					<div class="ad320">
-						<script type="text/javascript">
-var nend_params = {"media":13692,"site":63889,"spot":498603,"type":1,"oriented":1};
-</script>
-						<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
-					</div>
+
 					
 					<div class="entryFooter">
 						<time datetime="<?php echo get_post_time('Y-m-d'); ?>"><?php echo get_post_time('Y  m/d D. H:i'); ?></time>
