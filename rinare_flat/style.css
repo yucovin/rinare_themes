@@ -1,0 +1,682 @@
+@charset "UTF-8";
+/*
+Theme name: rinare flat cute
+Theme URI: http://rinare.com/
+Author: yuco vincent(sakuma nino)
+Author; URI: http://rinare.com/
+Description: flat cute style for "motto siritai ringo arekore" Apple blog
+Version: 1.0
+*/
+/* clearfix */
+/* For modern browsers */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+
+.clearfix:after { clear: both; }
+
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix { zoom: 1; }
+
+/* リストの余白とマージンをゼロ */
+ul, ol, dl { padding: 0; margin: 0; }
+
+ul, li { list-style-type: none; }
+
+h1, h2, h3, h4, h5, h6, p { margin-top: 0; /* 上マージンを削除することで、マージンを含む div からマージンがはみ出す場合があるという問題を回避。下マージンをとれば、後続のエレメントからは離される。 */ margin-bottom: 0; padding-right: 0; padding-left: 0; }
+
+p { line-height: 1.9em; margin-bottom: 0; /* wordpressの標準だと24pxらしい */ }
+
+/* Delete blue line of img link */
+a img { border: none; }
+
+/* img下に隙間ができるので回避 */
+img { vertical-align: bottom; }
+
+a:link { color: #26aeb3; text-decoration: none; }
+
+a:visited { color: #7852b5; }
+
+a:hover, a:active, a:focus { color: #ff7b6c; }
+
+/* jetpackの統計用img */
+img#wpstats { display: none; }
+
+html { font-size: 62.5%; }
+
+/*←ルートで10px基準サイズを決定*/
+body { font-size: 1.5rem; }
+
+/*←BODY全体1.5倍(15px相当)のサイズを相対指定*/
+body { font-family: "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; margin: 0; padding: 0; color: #6f3712; background-color: #92DDD0; min-width: 1070px; }
+
+#header { background-color: #F4632F; padding: 15px 0 10px 0; min-width: 1070px; }
+#header #siteTitle { width: 1050px; margin: 0 auto; }
+#header #siteTitle #badge { float: left; width: 100px; height: 100px; margin: 0 20px 0 0; position: relative; -webkit-perspective: 800px; -moz-perspective: 800px; -o-perspective: 800px; -ms-perspective: 800px; perspective: 800px; }
+#header #siteTitle #badge .face { content: ""; position: absolute; z-index: 2; }
+#header #siteTitle #badge .back { content: ""; position: absolute; z-index: 1; -webkit-transform: rotateY(-180deg); -moz-transform: rotateY(-180deg); -o-transform: rotateY(-180deg); -ms-transform: rotateY(-180deg); transform: rotateY(-180deg); }
+#header #siteTitle #badge .face, #header #siteTitle #badge .back { -webkit-backface-visibility: hidden; -webkit-transition: 0.5s ease-in-out; -moz-backface-visibility: hidden; -moz-transition: 0.5s ease-in-out; -o-backface-visibility: hidden; -o-transition: 0.5s ease-in-out; -ms-backface-visibility: hidden; -ms-transition: 0.5s ease-in-out; backface-visibility: hidden; transition: 0.5s ease-in-out; }
+#header #siteTitle #badge:hover .face { -webkit-transform: rotateY(180deg); -moz-transform: rotateY(180deg); -o-transform: rotateY(180deg); -ms-transform: rotateY(180deg); transform: rotateY(180deg); }
+#header #siteTitle #badge:hover .back { -webkit-transform: rotateY(0deg); -moz-transform: rotateY(0deg); -o-transform: rotateY(0deg); -ms-transform: rotateY(0deg); transform: rotateY(0deg); }
+#header #siteTitle h1 { width: 950px; }
+#header #siteTitle #catchphrase { float: right; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; font-size: 1.3rem; color: #e0f5f2; }
+
+#titleImage { background-color: #F9F8CD; min-width: 1070px; }
+#titleImage #imageMap { width: 1050px; margin: 0 auto; height: 310px; background-image: url(./images/siteImage03.png); background-repeat: no-repeat; background-size: 100% auto; }
+#titleImage #imageMap area { outline: none; }
+
+#navigation { min-width: 1070px; }
+#navigation #navbar { width: 1050px; margin: 0 auto; padding: 20px 0px 0px 0px; height: 60px; }
+#navigation #navbar nav .normal, #navigation #navbar nav #navCategory { font-family: "Source Code Pro", sans-serif; font-size: 2.0rem; float: left; text-align: center; margin: 0 10px 0 0; }
+#navigation #navbar nav .normal > a, #navigation #navbar nav #navCategory > a { display: block; background-color: #FFFFE4; color: #F4632F; width: 130px; line-height: 36px; border: 1px solid #F4632F; border-radius: 19px; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+#navigation #navbar nav .normal > a:hover, #navigation #navbar nav #navCategory > a:hover { box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.7); color: #68adae; }
+#navigation #navbar nav #navCategory { position: relative; /* z-index: 0; */ /* このメニューでのアニメのセット */ }
+#navigation #navbar nav #navCategory ul li { position: absolute; top: -26px; left: 21px; z-index: 2; width: 90px; height: 90px; opacity: 0; -webkit-transform: scale(0.1); -moz-transform: scale(0.1); -o-transform: scale(0.1); -ms-transform: scale(0.1); transform: scale(0.1); }
+#navigation #navbar nav #navCategory ul li a { background-color: rgba(246, 244, 191, 0.9); display: block; width: 100%; height: 100%; border-radius: 50%; font-size: 1.0rem; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); }
+#navigation #navbar nav #navCategory ul li a:hover { background-color: rgba(250, 217, 195, 0.8); }
+#navigation #navbar nav #navCategory ul .apple a { background-image: url(./images/cateApple.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory ul .apple a:hover { background-image: url(./images/cateAppleH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory ul .iphone a { background-image: url(./images/cateiPhone.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory ul .iphone a:hover { background-image: url(./images/cateiPhoneH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory ul .mac a { background-image: url(./images/cateMac.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory ul .mac a:hover { background-image: url(./images/cateMacH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory ul .dev a { background-image: url(./images/cateDev.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory ul .dev a:hover { background-image: url(./images/cateDevH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory ul .diary a { background-image: url(./images/cateDiary.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory ul .diary a:hover { background-image: url(./images/cateDiaryH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar nav #navCategory:hover .cover { position: absolute; top: -121px; /* 中心からの五角形ではないのでちょい上に設定 */ left: -65px; width: 260px; height: 260px; border-radius: 50%; }
+#navigation #navbar nav #navCategory:hover > a { box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.7); color: #68adae; }
+#navigation #navbar nav #navCategory:hover ul .apple { -webkit-animation-name: apple; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: ease-out; -webkit-animation-iteration-count: 1; -webkit-animation-fill-mode: forwards; -moz-animation-name: apple; -moz-animation-duration: 0.5s; -moz-animation-timing-function: ease-out; -moz-animation-iteration-count: 1; -moz-animation-fill-mode: forwards; -o-animation-name: apple; -o-animation-duration: 0.5s; -o-animation-timing-function: ease-out; -o-animation-iteration-count: 1; -o-animation-fill-mode: forwards; -ms-animation-name: apple; -ms-animation-duration: 0.5s; -ms-animation-timing-function: ease-out; -ms-animation-iteration-count: 1; -ms-animation-fill-mode: forwards; animation-name: apple; animation-duration: 0.5s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-fill-mode: forwards; }
+@-webkit-keyframes apple { 0% { -webkit-transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { -webkit-transform: translate(-89px, 20px) scale(1.3); opacity: 1; }
+  60% { -webkit-transform: translate(-89px, 20px) scale(0.8); opacity: 1; }
+  80% { -webkit-transform: translate(-89px, 20px) scale(1.1); opacity: 1; }
+  100% { -webkit-transform: translate(-89px, 20px) scale(1); opacity: 1; } }
+@-moz-keyframes apple { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(-89px, 20px) scale(1.3); opacity: 1; }
+  60% { transform: translate(-89px, 20px) scale(0.8); opacity: 1; }
+  80% { transform: translate(-89px, 20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(-89px, 20px) scale(1); opacity: 1; } }
+@-o-keyframes apple { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(-89px, 20px) scale(1.3); opacity: 1; }
+  60% { transform: translate(-89px, 20px) scale(0.8); opacity: 1; }
+  80% { transform: translate(-89px, 20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(-89px, 20px) scale(1); opacity: 1; } }
+@-ms-keyframes apple { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(-89px, 20px) scale(1.3); opacity: 1; }
+  60% { transform: translate(-89px, 20px) scale(0.8); opacity: 1; }
+  80% { transform: translate(-89px, 20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(-89px, 20px) scale(1); opacity: 1; } }
+@keyframes apple { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(-89px, 20px) scale(1.3); opacity: 1; }
+  60% { transform: translate(-89px, 20px) scale(0.8); opacity: 1; }
+  80% { transform: translate(-89px, 20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(-89px, 20px) scale(1); opacity: 1; } }
+#navigation #navbar nav #navCategory:hover ul .iphone { -webkit-animation-name: iphone; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: ease-out; -webkit-animation-iteration-count: 1; -webkit-animation-fill-mode: forwards; -moz-animation-name: iphone; -moz-animation-duration: 0.5s; -moz-animation-timing-function: ease-out; -moz-animation-iteration-count: 1; -moz-animation-fill-mode: forwards; -o-animation-name: iphone; -o-animation-duration: 0.5s; -o-animation-timing-function: ease-out; -o-animation-iteration-count: 1; -o-animation-fill-mode: forwards; -ms-animation-name: iphone; -ms-animation-duration: 0.5s; -ms-animation-timing-function: ease-out; -ms-animation-iteration-count: 1; -ms-animation-fill-mode: forwards; animation-name: iphone; animation-duration: 0.5s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-fill-mode: forwards; }
+@-webkit-keyframes iphone { 0% { -webkit-transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { -webkit-transform: translate(-54px, -81px) scale(1.3); opacity: 1; }
+  60% { -webkit-transform: translate(-54px, -81px) scale(0.8); opacity: 1; }
+  80% { -webkit-transform: translate(-54px, -81px) scale(1.1); opacity: 1; }
+  100% { -webkit-transform: translate(-54px, -81px) scale(1); opacity: 1; } }
+@-moz-keyframes iphone { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(-54px, -81px) scale(1.3); opacity: 1; }
+  60% { transform: translate(-54px, -81px) scale(0.8); opacity: 1; }
+  80% { transform: translate(-54px, -81px) scale(1.1); opacity: 1; }
+  100% { transform: translate(-54px, -81px) scale(1); opacity: 1; } }
+@-o-keyframes iphone { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(-54px, -81px) scale(1.3); opacity: 1; }
+  60% { transform: translate(-54px, -81px) scale(0.8); opacity: 1; }
+  80% { transform: translate(-54px, -81px) scale(1.1); opacity: 1; }
+  100% { transform: translate(-54px, -81px) scale(1); opacity: 1; } }
+@-ms-keyframes iphone { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(-54px, -81px) scale(1.3); opacity: 1; }
+  60% { transform: translate(-54px, -81px) scale(0.8); opacity: 1; }
+  80% { transform: translate(-54px, -81px) scale(1.1); opacity: 1; }
+  100% { transform: translate(-54px, -81px) scale(1); opacity: 1; } }
+@keyframes iphone { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(-54px, -81px) scale(1.3); opacity: 1; }
+  60% { transform: translate(-54px, -81px) scale(0.8); opacity: 1; }
+  80% { transform: translate(-54px, -81px) scale(1.1); opacity: 1; }
+  100% { transform: translate(-54px, -81px) scale(1); opacity: 1; } }
+#navigation #navbar nav #navCategory:hover ul .mac { -webkit-animation-name: mac; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: ease-out; -webkit-animation-iteration-count: 1; -webkit-animation-fill-mode: forwards; -moz-animation-name: mac; -moz-animation-duration: 0.5s; -moz-animation-timing-function: ease-out; -moz-animation-iteration-count: 1; -moz-animation-fill-mode: forwards; -o-animation-name: mac; -o-animation-duration: 0.5s; -o-animation-timing-function: ease-out; -o-animation-iteration-count: 1; -o-animation-fill-mode: forwards; -ms-animation-name: mac; -ms-animation-duration: 0.5s; -ms-animation-timing-function: ease-out; -ms-animation-iteration-count: 1; -ms-animation-fill-mode: forwards; animation-name: mac; animation-duration: 0.5s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-fill-mode: forwards; }
+@-webkit-keyframes mac { 0% { -webkit-transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { -webkit-transform: translate(54px, -81px) scale(1.3); opacity: 1; }
+  60% { -webkit-transform: translate(54px, -81px) scale(0.8); opacity: 1; }
+  80% { -webkit-transform: translate(54px, -81px) scale(1.1); opacity: 1; }
+  100% { -webkit-transform: translate(54px, -81px) scale(1); opacity: 1; } }
+@-moz-keyframes mac { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(54px, -81px) scale(1.3); opacity: 1; }
+  60% { transform: translate(54px, -81px) scale(0.8); opacity: 1; }
+  80% { transform: translate(54px, -81px) scale(1.1); opacity: 1; }
+  100% { transform: translate(54px, -81px) scale(1); opacity: 1; } }
+@-o-keyframes mac { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(54px, -81px) scale(1.3); opacity: 1; }
+  60% { transform: translate(54px, -81px) scale(0.8); opacity: 1; }
+  80% { transform: translate(54px, -81px) scale(1.1); opacity: 1; }
+  100% { transform: translate(54px, -81px) scale(1); opacity: 1; } }
+@-ms-keyframes mac { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(54px, -81px) scale(1.3); opacity: 1; }
+  60% { transform: translate(54px, -81px) scale(0.8); opacity: 1; }
+  80% { transform: translate(54px, -81px) scale(1.1); opacity: 1; }
+  100% { transform: translate(54px, -81px) scale(1); opacity: 1; } }
+@keyframes mac { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(54px, -81px) scale(1.3); opacity: 1; }
+  60% { transform: translate(54px, -81px) scale(0.8); opacity: 1; }
+  80% { transform: translate(54px, -81px) scale(1.1); opacity: 1; }
+  100% { transform: translate(54px, -81px) scale(1); opacity: 1; } }
+#navigation #navbar nav #navCategory:hover ul .dev { -webkit-animation-name: dev; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: ease-out; -webkit-animation-iteration-count: 1; -webkit-animation-fill-mode: forwards; -moz-animation-name: dev; -moz-animation-duration: 0.5s; -moz-animation-timing-function: ease-out; -moz-animation-iteration-count: 1; -moz-animation-fill-mode: forwards; -o-animation-name: dev; -o-animation-duration: 0.5s; -o-animation-timing-function: ease-out; -o-animation-iteration-count: 1; -o-animation-fill-mode: forwards; -ms-animation-name: dev; -ms-animation-duration: 0.5s; -ms-animation-timing-function: ease-out; -ms-animation-iteration-count: 1; -ms-animation-fill-mode: forwards; animation-name: dev; animation-duration: 0.5s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-fill-mode: forwards; }
+@-webkit-keyframes dev { 0% { -webkit-transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { -webkit-transform: translate(0px, 83px) scale(1.3); opacity: 1; }
+  60% { -webkit-transform: translate(0px, 83px) scale(0.8); opacity: 1; }
+  80% { -webkit-transform: translate(0px, 83px) scale(1.1); opacity: 1; }
+  100% { -webkit-transform: translate(0px, 83px) scale(1); opacity: 1; } }
+@-moz-keyframes dev { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(0px, 83px) scale(1.3); opacity: 1; }
+  60% { transform: translate(0px, 83px) scale(0.8); opacity: 1; }
+  80% { transform: translate(0px, 83px) scale(1.1); opacity: 1; }
+  100% { transform: translate(0px, 83px) scale(1); opacity: 1; } }
+@-o-keyframes dev { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(0px, 83px) scale(1.3); opacity: 1; }
+  60% { transform: translate(0px, 83px) scale(0.8); opacity: 1; }
+  80% { transform: translate(0px, 83px) scale(1.1); opacity: 1; }
+  100% { transform: translate(0px, 83px) scale(1); opacity: 1; } }
+@-ms-keyframes dev { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(0px, 83px) scale(1.3); opacity: 1; }
+  60% { transform: translate(0px, 83px) scale(0.8); opacity: 1; }
+  80% { transform: translate(0px, 83px) scale(1.1); opacity: 1; }
+  100% { transform: translate(0px, 83px) scale(1); opacity: 1; } }
+@keyframes dev { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(0px, 83px) scale(1.3); opacity: 1; }
+  60% { transform: translate(0px, 83px) scale(0.8); opacity: 1; }
+  80% { transform: translate(0px, 83px) scale(1.1); opacity: 1; }
+  100% { transform: translate(0px, 83px) scale(1); opacity: 1; } }
+#navigation #navbar nav #navCategory:hover ul .diary { -webkit-animation-name: diary; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: ease-out; -webkit-animation-iteration-count: 1; -webkit-animation-fill-mode: forwards; -moz-animation-name: diary; -moz-animation-duration: 0.5s; -moz-animation-timing-function: ease-out; -moz-animation-iteration-count: 1; -moz-animation-fill-mode: forwards; -o-animation-name: diary; -o-animation-duration: 0.5s; -o-animation-timing-function: ease-out; -o-animation-iteration-count: 1; -o-animation-fill-mode: forwards; -ms-animation-name: diary; -ms-animation-duration: 0.5s; -ms-animation-timing-function: ease-out; -ms-animation-iteration-count: 1; -ms-animation-fill-mode: forwards; animation-name: diary; animation-duration: 0.5s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-fill-mode: forwards; }
+@-webkit-keyframes diary { 0% { -webkit-transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { -webkit-transform: translate(89px, 20px) scale(1.3); opacity: 1; }
+  60% { -webkit-transform: translate(89px, 20px) scale(0.8); opacity: 1; }
+  80% { -webkit-transform: translate(89px, 20px) scale(1.1); opacity: 1; }
+  100% { -webkit-transform: translate(89px, 20px) scale(1); opacity: 1; } }
+@-moz-keyframes diary { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(89px, 20px) scale(1.3); opacity: 1; }
+  60% { transform: translate(89px, 20px) scale(0.8); opacity: 1; }
+  80% { transform: translate(89px, 20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(89px, 20px) scale(1); opacity: 1; } }
+@-o-keyframes diary { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(89px, 20px) scale(1.3); opacity: 1; }
+  60% { transform: translate(89px, 20px) scale(0.8); opacity: 1; }
+  80% { transform: translate(89px, 20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(89px, 20px) scale(1); opacity: 1; } }
+@-ms-keyframes diary { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(89px, 20px) scale(1.3); opacity: 1; }
+  60% { transform: translate(89px, 20px) scale(0.8); opacity: 1; }
+  80% { transform: translate(89px, 20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(89px, 20px) scale(1); opacity: 1; } }
+@keyframes diary { 0% { transform: translate(0px, 0px) scale(0.1); opacity: 0; }
+  35% { transform: translate(89px, 20px) scale(1.3); opacity: 1; }
+  60% { transform: translate(89px, 20px) scale(0.8); opacity: 1; }
+  80% { transform: translate(89px, 20px) scale(1.1); opacity: 1; }
+  100% { transform: translate(89px, 20px) scale(1); opacity: 1; } }
+#navigation #navbar #info li { margin: 0 10px 0 0; float: left; }
+#navigation #navbar #info li a { display: block; background-color: #FFFFE4; width: 36px; height: 36px; border: 1px solid #F4632F; border-radius: 19px; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+#navigation #navbar #info li a:hover { box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.7); }
+#navigation #navbar #info #rss a { background-image: url(./images/navRss.png); background-repeat: no-repeat; background-size: 100% auto; margin: 0 0 0 32px; }
+#navigation #navbar #info #rss a:hover { background-image: url(./images/navRssH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar #info #twitter a { background-image: url(./images/navTwitter.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar #info #twitter a:hover { background-image: url(./images/navTwitterH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar #info #facebook a { background-image: url(./images/navFacebook.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar #info #facebook a:hover { background-image: url(./images/navFacebookH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar #info #googlePlus a { background-image: url(./images/navGooglePlus.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar #info #googlePlus a:hover { background-image: url(./images/navGooglePlusH.png); background-repeat: no-repeat; background-size: 100% auto; }
+#navigation #navbar #search { margin: 3px 0 0 32px; float: right; background-color: #FFFFE4; width: 220px; height: 32px; border: 1px solid #F4632F; border-radius: 16px; box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.5); }
+#navigation #breadCrumb { width: 1050px; margin: 0 auto; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; font-size: 1.2rem; height: 30px; }
+#navigation #breadCrumb li { display: inline; }
+#navigation #breadCrumb li a { margin-right: 10px; }
+
+/* for single */
+#content { padding-bottom: 40px; min-width: 1070px; }
+#content .jaggedUpside { width: 100%; height: 20px; background: linear-gradient(-135deg, #92DDD0 7px, transparent 0) 0 7px, linear-gradient(135deg, #92DDD0 7px, #FFFFE4 0) 0 7px; background-size: 15px 15px; background-repeat: repeat-x; }
+#content .jaggedUpsideDown { margin: -10px 0 0 0; width: 100%; height: 20px; background: linear-gradient(-135deg, #FFFFE4 7px, transparent 0) 0 7px, linear-gradient(135deg, #FFFFE4 7px, #92DDD0 0) 0 7px; background-size: 15px 15px; background-repeat: repeat-x; }
+#content .sideGaggedHead { width: 100%; height: 20px; background: linear-gradient(-135deg, #92DDD0 7px, transparent 0) 0 7px, linear-gradient(135deg, #92DDD0 7px, #b9e9e1 0) 0 7px; background-size: 15px 15px; background-repeat: repeat-x; }
+#content .sideGaggedTail { width: 100%; height: 20px; background: linear-gradient(-135deg, #b9e9e1 7px, transparent 0) 0 7px, linear-gradient(135deg, #b9e9e1 7px, #92DDD0 0) 0 7px; background-size: 15px 15px; background-repeat: repeat-x; margin: -10px 0 0 0; }
+#content .wraped { width: 1050px; margin: 0 auto; }
+#content .wraped #main { width: 730px; float: left; }
+#content .wraped #main .post { background-color: #FFFFE4; }
+#content .wraped #main .post .entryHeader { position: relative; height: 230px; }
+#content .wraped #main .post .entryHeader a:hover { color: #ffacac; }
+#content .wraped #main .post .entryHeader time { position: absolute; content: ""; top: 50px; background-color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 1.9rem; color: #FFFFE4; margin: 0 0 0 -15px; padding: 8px 0 8px 25px; }
+#content .wraped #main .post .entryHeader time:after { content: ""; position: absolute; top: 0; right: -40px; height: 0; width: 0; border: 20px solid #F4632F; border-right-color: transparent; }
+#content .wraped #main .post .entryHeader .category { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 20px; position: absolute; content: ""; top: 48px; right: 20px; }
+#content .wraped #main .post .entryHeader .category:before { content: ""; position: absolute; left: -30px; top: -2px; height: 20px; width: 25px; background-image: url(./images/iconCate.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .wraped #main .post .entryHeader .tag { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 23px; position: absolute; content: ""; top: 20px; right: 20px; }
+#content .wraped #main .post .entryHeader .tag:before { content: ""; position: absolute; left: -40px; top: -2px; height: 23px; width: 30px; background-image: url(./images/iconTag.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .wraped #main .post .entryHeader .lastModify { font-size: 1.4rem; font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; position: absolute; content: ""; top: 70px; right: 20px; }
+#content .wraped #main .post .entryHeader h1 { font-size: 2.2rem; position: absolute; content: ""; top: 120px; padding: 0 30px; }
+#content .wraped #main .post .entryHeader h1 a { color: #68adae; }
+#content .wraped #main .post .fbpLike { color: #646464; font-size: 1.4rem; text-align: center; }
+#content .wraped #main .post .entryTallAd { margin: 20px 0 30px 30px; }
+#content .wraped #main .post .entryTallAd .tailAd { float: left; width: 336px; height: 280px; margin-right: 5px; }
+#content .wraped #main .post .relation { margin: 40px 0 0 0; }
+#content .wraped #main .post .relation h1 { position: relative; background-color: #9fd882; font-size: 1.7rem; color: #FFFFE4; margin: 0 0 15px -15px; padding: 7px 0 7px 25px; width: 350px; }
+#content .wraped #main .post .relation h1:after { content: ""; position: absolute; top: 0; right: -40px; height: 0; width: 0; border: 20px solid #9fd882; border-right-color: transparent; }
+#content .wraped #main .post .relation .cate { font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; margin: 0 0 0 45px; color: #F4632F; }
+#content .wraped #main .post .relation .wrap8title { margin: 6px 0 20px 40px; width: 650px; height: 420px; }
+#content .wraped #main .post .relation .wrap8title .linkBox { width: 150px; height: 200px; float: left; margin: 5px; border: 1px solid #F4632F; position: relative; }
+#content .wraped #main .post .relation .wrap8title .linkBox a { color: white; }
+#content .wraped #main .post .relation .wrap8title .linkBox .thumb { width: 150px; height: 150px; overflow: hidden; }
+#content .wraped #main .post .relation .wrap8title .linkBox .cover { position: absolute; right: 30px; top: 110px; width: 70px; height: 60px; opacity: 0; background-image: url(./images/clickMe.png); background-repeat: no-repeat; background-size: 100% auto; -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -o-transition: 0.2s ease-in-out; -ms-transition: 0.2s ease-in-out; transition: 0.2s ease-in-out; }
+#content .wraped #main .post .relation .wrap8title .linkBox .title { position: absolute; bottom: 0; font-size: 1.3rem; word-break: break-all; padding: 5px 3px; width: 144px; max-height: 95px; min-height: 40px; overflow: hidden; background-color: rgba(16, 124, 120, 0.7); }
+#content .wraped #main .post .relation .wrap8title .linkBox .date { position: absolute; top: 1px; right: 2px; font-family: "Source Code Pro", sans-serif; font-size: 1.1rem; color: #6f3712; text-shadow: 1px 1px 1px white, -1px -1px 1px white, 1px -1px 1px white, -1px 1px 1px white; }
+#content .wraped #main .post .relation .wrap8title .linkBox :hover .cover { top: 30px; opacity: 1; }
+#content .wraped #main .post .relation ul { margin: 0 0 30px 45px; }
+#content .wraped #main .post .relation li { float: left; font-size: 1.2rem; text-align: center; line-height: 33px; margin: 0 10px 30px 0; }
+#content .wraped #main .post .relation li a { display: block; background-color: #FFFFE4; color: #F4632F; width: 312px; height: 30px; border: 1px solid #F4632F; border-radius: 15px; }
+#content .wraped #main .post .relation li a:hover { background-color: #f9ac90; color: #FFFFE4; }
+#content .wraped #main .post .entryFooter { border-top: 2px dashed #b9e9e1; height: 130px; position: relative; }
+#content .wraped #main .post .entryFooter time { position: absolute; content: ""; top: 10px; right: 30px; font-size: 1.7rem; line-height: 20px; font-family: "Source Code Pro", sans-serif; }
+#content .wraped #main .post .entryFooter time:before { content: ""; position: absolute; left: -30px; height: 20px; width: 20px; background-image: url(./images/iconTime.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .wraped #main .post .entryFooter .lastModify { position: absolute; content: ""; top: 30px; right: 30px; font-size: 1.3rem; font-family: "Source Code Pro", sans-serif; color: #c76220; }
+#content .wraped #main .post .entryFooter .category { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 20px; position: absolute; content: ""; top: 20px; left: 52px; }
+#content .wraped #main .post .entryFooter .category:before { content: ""; position: absolute; left: -33px; top: -2px; height: 20px; width: 25px; background-image: url(./images/iconCate.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .wraped #main .post .entryFooter .tag { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 23px; position: absolute; content: ""; top: 48px; left: 54px; }
+#content .wraped #main .post .entryFooter .tag:before { content: ""; position: absolute; left: -40px; top: -2px; height: 23px; width: 30px; background-image: url(./images/iconTag.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .wraped #main .post .entryFooter .commCount { font-size: 1.8rem; font-family: "Source Code Pro", sans-serif; line-height: 24px; position: absolute; content: ""; top: 80px; right: 30px; }
+#content .wraped #main .post .entryFooter .commCount:before { content: ""; position: absolute; left: -36px; height: 24px; width: 27px; background-image: url(./images/iconComm.png); background-repeat: no-repeat; background-size: 100% auto; }
+#content .wraped #main .about { background-color: #FFFFE4; padding: 20px 5px 30px 10px; }
+#content .wraped #main .about h1 { position: relative; background-color: #F4632F; font-size: 1.7rem; font-family: "Source Code Pro", sans-serif; color: #FFFFE4; margin: 0 0 15px -20px; padding: 7px 0 7px 25px; width: 175px; }
+#content .wraped #main .about h1:after { content: ""; position: absolute; top: 0; right: -36px; height: 0; width: 0; border: 18px solid #F4632F; border-right-color: transparent; }
+#content .wraped #main .about dt { color: #F4632F; border-bottom: 1px solid #F4632F; }
+#content .wraped #main .about dd { font-size: 1.4rem; margin: 10px 20px; text-align: justify; }
+#content .wraped #main .about .authorImg { width: 150px; height: 150px; background-image: url(./images/profYucovin200.png); background-repeat: no-repeat; background-size: 100% auto; border: 1px solid #ff571a; margin: 20px 20px 20px 20px; float: left; }
+#content .wraped #main .about .author { margin: 30px 0 0 10px; font-family: "Source Code Pro", sans-serif; font-size: 1.9rem; color: #F4632F; }
+#content .wraped #main .about .site { clear: both; font-size: 1.6rem; margin: 30px 0 0 10px; }
+#content .wraped #main .about .follow { margin: 50px 20px 0 25px; }
+#content .wraped #main .about .whisper { font-size: 1.1rem; }
+#content .wraped #main .about .notice { clear: both; width: 570px; margin: 0 auto; font-size: 1.1rem; color: #706f6f; }
+#content .wraped #main .about .more { font-size: 1.4rem; text-align: center; line-height: 33px; margin: 40px 0 0 370px; }
+#content .wraped #main .about .more a { display: block; background-color: #FFFFE4; color: #F4632F; width: 300px; height: 32px; border: 1px solid #F4632F; border-radius: 16px; }
+#content .wraped #main .about .more a:hover { background-color: #f9ac90; color: #FFFFE4; }
+#content .wraped #main .wAd { background-color: #FFF; width: 730px; border: 1px solid #e3e3e3; margin: 30px 0; }
+#content .wraped #main #comments { background-color: #FFFFE4; padding: 20px 5px 30px 10px; word-wrap: break-word; }
+#content .wraped #main #comments h1 { font-family: "Source Code Pro", sans-serif; text-align: right; font-size: 1.1rem; color: #92DDD0; }
+#content .wraped #main #comments h2 { position: relative; background-color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 1.7rem; color: #FFFFE4; margin: 0 0 10px -10px; padding: 7px 0 7px 25px; }
+#content .wraped #main #comments h2:after { content: ""; position: absolute; top: 0; right: -36px; height: 0; width: 0; border: 18px solid #F4632F; border-right-color: transparent; }
+#content .wraped #main #comments .show { margin: 0 0 30px 0; }
+#content .wraped #main #comments .show h2 { width: 255px; }
+#content .wraped #main #comments .show .thisPost { font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; font-size: 1.2rem; color: #F4632F; }
+#content .wraped #main #comments .show .comment-author { clear: both; font-size: 1.8rem; margin: 10px 0; }
+#content .wraped #main #comments .show .comment-author .says { font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; font-size: 1.3rem; color: gray; }
+#content .wraped #main #comments .show .authorImg { float: left; width: 60px; height: 60px; margin: 0 30px 0 0; }
+#content .wraped #main #comments .show .textArea { float: left; border: 1px solid #F4632F; border-radius: 10px; position: relative; background-color: #fffcfc; display: block; position: relative; width: 75%; padding: 5px 10px 15px 20px; }
+#content .wraped #main #comments .show .textArea:before { content: ""; position: absolute; top: 25px; left: -30px; height: 0; width: 0; border: 15px solid #F4632F; border-top-color: transparent; border-bottom-color: transparent; border-left-color: transparent; }
+#content .wraped #main #comments .show .textArea:after { content: ""; position: absolute; top: 25px; left: -29px; height: 0; width: 0; border: 15px solid #fffcfc; border-top-color: transparent; border-bottom-color: transparent; border-left-color: transparent; }
+#content .wraped #main #comments .show .textArea .comment-meta { text-align: right; font-family: "Source Code Pro", sans-serif; font-size: 1.5rem; }
+#content .wraped #main #comments .show .textArea .text { font-size: 1.4rem; }
+#content .wraped #main #comments .show .reply { clear: both; float: right; margin: 10px 15px 30px 0; font-size: 1.3rem; }
+#content .wraped #main #comments .show li { border-bottom: 3px dashed #f5d4be; }
+#content .wraped #main #comments .show .children { margin: 0 0 0 15px; }
+#content .wraped #main #comments .show .children li { border-bottom: none; }
+#content .wraped #main #comments .submit h2 { width: 140px; }
+#content .wraped #main #comments .submit .message { color: #F4632F; margin: 0 0 30px 20px; }
+#content .wraped #main #comments .submit h3 { font-size: 1.3rem; margin: 0 0 0 10px; color: gray; }
+#content .wraped #main #comments .submit .jet { width: 670px; margin: 0 auto; }
+#content .wraped #main #comments .submit .notice { padding: 20px; }
+#content .wraped #main #comments .submit .notice h4 { font-size: 1.4rem; border-left: 14px solid #ff9d9d; border-radius: 10px; padding: 0 0 0 8px; color: #ff9d9d; }
+#content .wraped #main #comments .submit .notice dt { border-bottom: 1px solid #ff9d9d; margin: 20px 0 10px 0; font-size: 1.3rem; }
+#content .wraped #main #comments .submit .notice dd { font-size: 1.2rem; color: gray; margin: 10px 0; }
+#content .wraped #sidebar { width: 300px; float: right; padding: 10px 0 0 0; }
+#content .wraped #sidebar h1 { font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; color: #6f3712; font-size: 1.8rem; padding: 2px 2px 2px 20px; border: 1px solid #FFFFE4; margin: 0 0 10px 0; background-color: #b9e9e1; position: relative; }
+#content .wraped #sidebar h1:before { position: absolute; content: ""; top: 50%; margin-top: -3px; left: 5px; height: 6px; width: 6px; background-color: #92DDD0; border-radius: 50%; box-shadow: 1px 1px 1px #777 inset; }
+#content .wraped #sidebar h2 { margin: 30px 0 5px 0; font-size: 1.5rem; color: #9b4d19; border-bottom: 1px dashed #F4632F; }
+#content .wraped #sidebar p { font-size: 1.3rem; text-align: justify; }
+#content .wraped #sidebar .sideItem { margin: 20px 0 40px 20px; }
+#content .wraped #sidebar .sideItem h2 { font-size: 1.5rem; border-bottom: 1px dotted #6f3712; margin-bottom: 10px; }
+#content .wraped #sidebar .cateNew { margin: 20px 0 0 0; overflow: hidden; height: 100px; }
+#content .wraped #sidebar .cateNew .thumb { width: 100px; height: 100px; float: left; margin: 0 8px 0 0; }
+#content .wraped #sidebar .cateNew .date { font-family: "Source Code Pro", sans-serif; font-size: 1.3rem; }
+#content .wraped #sidebar .cateNew .title { font-size: 1.3rem; }
+#content .wraped #sidebar .sideAd { width: 300px; height: 250px; }
+#content .wraped #sidebar .sideBox { margin: 40px 0; }
+#content .wraped #sidebar .fb-page { width: 300px; height: 130px; background-color: #FFFFE4; }
+#content .wraped #sidebar .gBadge { margin: 30px 0; }
+#content .wraped #sidebar .monthArchive { font-family: "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; font-size: 1.2rem; -webkit-column-count: 2; -webkit-column-gap: 5px; -moz-column-count: 2; -moz-column-gap: 5px; -o-column-count: 2; -o-column-gap: 5px; -ms-column-count: 2; -ms-column-gap: 5px; column-count: 2; column-gap: 5px; }
+#content .wraped #sidebar .tags { -webkit-column-count: 2; -webkit-column-gap: 5px; -moz-column-count: 2; -moz-column-gap: 5px; -o-column-count: 2; -o-column-gap: 5px; -ms-column-count: 2; -ms-column-gap: 5px; column-count: 2; column-gap: 5px; }
+#content .wraped #sidebar .tags li { font-size: 1.0rem; padding: 3px 2px 3px 3px; border: 1px solid #FFFFE4; margin: 0 0 3px 0; background-color: #e0f5f2; display: block; }
+#content .wraped #sidebar .tags li a { color: #1a6d7b; }
+#content .wraped #sidebar .tags li a:hover { color: #ff7b6c; }
+#content .wraped #sidebar .tags li a:visited { color: #7953b6; }
+#content .wraped #sidebar .scroll { margin: 30px 0 0 0; }
+#content .wraped #sidebar .scroll .apps { background-color: #b9e9e1; padding: 5px; }
+#content .wraped #sidebar .scroll .apps p { margin: 0 8px; }
+#content .wraped #sidebar .scroll .apps .applist h2 { margin: 14px 0 5px 5px; font-size: 1.6rem; font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; color: #F4632F; }
+#content .wraped #sidebar .scroll .apps .applist .linkcat li { display: inline-block; }
+#content .wraped #sidebar .scroll .apps .applist .linkcat img { width: 54px; height: 54px; border-radius: 10px; }
+#content .wraped #sidebar .scroll .apps .myApp { width: 90%; border: 1px solid #F4632F; margin: 10px auto 20px auto; padding: 10px; background-color: #eaf8e3; }
+#content .wraped #sidebar .scroll .apps .myApp img { width: 100px; height: 100px; border-radius: 22px; float: left; margin: 0 10px 0 0; }
+
+.shareSNS { margin: 0 0 0 35px; }
+.shareSNS ul { margin: 0 auto; list-style: none; }
+.shareSNS ul li { float: left; width: 15%; margin: 0 1% 3% 0; }
+.shareSNS ul li a { font-size: 75%; display: block; padding: 10px; border: 1px solid; border-radius: 4px; text-align: center; }
+.shareSNS .twitter a { border-color: #00acee; color: #00acee; }
+.shareSNS .facebook a { border-color: #3b5998; color: #3b5998; }
+.shareSNS .googleplus a { border-color: #db4a39; color: #db4a39; }
+.shareSNS .hatebu a { border-color: #5d8ac1; color: #5d8ac1; }
+.shareSNS .pocket a { border-color: #f03e51; color: #f03e51; }
+.shareSNS .feedly a { border-color: #87c040; color: #87c040; }
+
+.shareHead { float: right; margin: 0 20px 20px 0; }
+.shareHead .sns { float: left; line-height: 1; }
+.shareHead .twitter { width: 97px; }
+.shareHead .facebook { width: 165px; }
+.shareHead .googleplus { width: 74px; }
+.shareHead .hatebu { width: 63px; }
+.shareHead .pocket { width: 100px; }
+
+.sharePlease { margin: 10px auto; width: 500px; text-align: center; font-size: 1.7rem; color: #F4632F; border-left: 25px solid #92DDD0; border-right: 25px solid #92DDD0; }
+
+.shareTail { margin: 0 auto; width: 400px; }
+.shareTail .sns { float: left; line-height: 1; }
+.shareTail .twitter { width: 71px; }
+.shareTail .facebook { width: 84px; }
+.shareTail .googleplus { width: 65px; }
+.shareTail .hatebu { width: 80px; }
+.shareTail .pocket { width: 70px; margin-left: 15px; }
+
+.followMeSet { margin: 50px 0 20px 60px; }
+.followMeSet li { float: left; margin: 0 20px 0 0; }
+.followMeSet li a { width: 100px; height: 100px; display: block; background-color: white; border: 1px solid #F4632F; border-radius: 19px; box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+.followMeSet li a:hover { box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.7); background-color: #fff0ec; }
+.followMeSet .rss a { background-image: url(./images/followRss.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .rss a:hover { background-image: url(./images/followRssH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .feedly a { background-image: url(./images/followFeedly.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .feedly a:hover { background-image: url(./images/followFeedlyH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .twitter a { background-image: url(./images/followTwitter.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .twitter a:hover { background-image: url(./images/followTwitterH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .facebook a { background-image: url(./images/followFacebook.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .facebook a:hover { background-image: url(./images/followFacebookH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .googlePlus a { background-image: url(./images/followGooglePlus.png); background-repeat: no-repeat; background-size: 100% auto; }
+.followMeSet .googlePlus a:hover { background-image: url(./images/followGooglePlusH.png); background-repeat: no-repeat; background-size: 100% auto; }
+
+/* for top page, for archive*/
+#content .boxAd { width: 338px; height: 282px; float: left; margin: 0 18px 30px 0; }
+#content .adMark { margin: -10px 0 0 0; font-size: 1.2rem; }
+#content .boxAdSmall { float: left; width: 300px; height: 250px; padding: 16px 19px; margin: 0 18px 30px 0; }
+#content .boxPost { width: 336px; height: 280px; border: 1px solid #F4632F; float: left; margin: 0 18px 30px 0; position: relative; }
+#content .boxPost .thumbnail { width: 336px; height: 280px; overflow: hidden; }
+#content .boxPost time { position: absolute; top: 5px; right: 8px; font-family: "Source Code Pro", sans-serif; font-size: 1.5rem; color: #6f3712; text-shadow: 1px 1px 1px white, -1px -1px 1px white, 1px -1px 1px white, -1px 1px 1px white; -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -o-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; }
+#content .boxPost .titleDay { position: absolute; bottom: 0; /* background-color: rgba(0, 0, 0, 0.5); */ background-color: rgba(255, 255, 234, 0.8); padding: 10px; height: 70px; overflow: hidden; -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -o-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; }
+#content .boxPost .titleDay h1 { font-size: 1.7rem; color: #6f3712; -webkit-transition: 0.8s ease-in; -moz-transition: 0.8s ease-in; -o-transition: 0.8s ease-in; -ms-transition: 0.8s ease-in; transition: 0.8s ease-in; }
+#content .boxPost .titleDay p { opacity: 0; -webkit-transition: 0.8s ease-in; -moz-transition: 0.8s ease-in; -o-transition: 0.8s ease-in; -ms-transition: 0.8s ease-in; transition: 0.8s ease-in; margin: 16px 0 0 0; border-top: 4px dotted #92DDD0; padding: 10px 0 0 0; font-size: 1.4rem; }
+#content .boxPost:hover .titleDay { height: 260px; background-color: rgba(255, 255, 234, 0.9); }
+#content .boxPost:hover .titleDay h2 { color: #F4632F; }
+#content .boxPost:hover .titleDay p { color: #6f3712; opacity: 1; }
+#content .boxPost:hover time { opacity: 0; }
+#content .miniBoxPost { width: 200px; height: 167px; border-top: 1px solid #F4632F; border-bottom: 1px solid #F4632F; border-left: 1px solid #F4632F; float: left; margin: 0 0 30px 0; position: relative; }
+#content .miniBoxPost .thumbnail { width: 200px; height: 167px; overflow: hidden; }
+#content .miniBoxPost .thumbnail .eyeCatch { width: 200px; height: 167px; overflow: hidden; -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -o-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; }
+#content .miniBoxPost time { position: absolute; top: 5px; right: 8px; font-family: "Source Code Pro", sans-serif; font-size: 1.5rem; color: #6f3712; text-shadow: 1px 1px 1px white, -1px -1px 1px white, 1px -1px 1px white, -1px 1px 1px white; -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -o-transition: 0.2s ease-in-out; -ms-transition: 0.2s ease-in-out; transition: 0.2s ease-in-out; }
+#content .miniBoxPost .titleDay { position: absolute; bottom: 0; /* background-color: rgba(0, 0, 0, 0.5); */ background-color: rgba(255, 255, 234, 0.5); padding: 5px; height: 40px; overflow: hidden; -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -o-transition: 0.2s ease-in-out; -ms-transition: 0.2s ease-in-out; transition: 0.2s ease-in-out; }
+#content .miniBoxPost .titleDay h3 { font-size: 1.4rem; color: #6f3712; -webkit-transition: 0.3s ease-in; -moz-transition: 0.3s ease-in; -o-transition: 0.3s ease-in; -ms-transition: 0.3s ease-in; transition: 0.3s ease-in; }
+#content .miniBoxPost:hover .eyeCatch { -webkit-transform: scale(1.4); -moz-transform: scale(1.4); -o-transform: scale(1.4); -ms-transform: scale(1.4); transform: scale(1.4); }
+#content .miniBoxPost:hover .titleDay { background-color: rgba(255, 255, 234, 0.8); height: 80px; }
+#content .miniBoxPost:hover .titleDay h3 { color: #F4632F; }
+#content .miniBoxPost:hover time { opacity: 0; }
+#content .moreCatePost { width: 45px; height: 169px; float: left; background-color: white; margin: 0 0 30px 0; position: relative; }
+#content .moreCatePost .moreButton { width: 33px; height: 100px; border: 1px solid #F4632F; background-color: rgba(252, 255, 212, 0.5); overflow: hidden; padding: 67px 0 0 10px; font-size: 3.0rem; color: #F4632F; position: absolute; right: 0; -webkit-transition: 0.3s ease-in-out; -moz-transition: 0.3s ease-in-out; -o-transition: 0.3s ease-in-out; -ms-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out; }
+#content .moreCatePost .moreButton span { opacity: 0; -webkit-transition: 0.5s ease-in; -moz-transition: 0.5s ease-in; -o-transition: 0.5s ease-in; -ms-transition: 0.5s ease-in; transition: 0.5s ease-in; font-size: 1.4rem; color: #6f3712; }
+#content .moreCatePost .moreButton:hover { width: 250px; background-color: rgba(255, 255, 236, 0.9); }
+#content .moreCatePost .moreButton:hover span { opacity: 1; }
+#content .moreCate { clear: both; text-align: right; margin: 30px 20px 0 0; }
+#content .ribbon { position: relative; background-color: #FFFFE4; font-size: 2.0rem; font-family: "Source Code Pro", sans-serif; color: #F4632F; margin: 0 0 20px 0; padding: 0 0 0 20px; line-height: 40px; width: 250px; /* 仮の数字 */ height: 40px; }
+#content .ribbon:after { content: ""; position: absolute; top: 0; right: -40px; height: 0; width: 0; border: 20px solid #FFFFE4; border-right-color: transparent; }
+#content #new { width: 1050px; margin: 0 auto; margin: 0 0 40px -5px; position: relative; padding: 5px; overflow: hidden; z-index: 0; /* new ribbon */ }
+#content #new .lastEntry { width: 694px; float: left; margin: 0 18px 0 0; }
+#content #new .lastEntry .newerBox { background-color: #FFFFE4; overflow: auto; padding: 20px; }
+#content #new .lastEntry .newerBox .thumbnail { width: 288px; height: 240px; float: left; background-color: rgba(0, 0, 0, 0.1); margin: 0 10px 0 0; overflow: hidden; position: relative; }
+#content #new .lastEntry .newerBox .thumbnail .eyeCatch { position: relative; top: 0; width: 288px; height: 240px; overflow: hidden; -webkit-transition: 0.2s ease; -moz-transition: 0.2s ease; -o-transition: 0.2s ease; -ms-transition: 0.2s ease; transition: 0.2s ease; }
+#content #new .lastEntry .newerBox .thumbnail:hover .eyeCatch { -webkit-transform: scale(1.2); -moz-transform: scale(1.2); -o-transform: scale(1.2); -ms-transform: scale(1.2); transform: scale(1.2); }
+#content #new .lastEntry .newerBox .intro { float: right; width: 340px; }
+#content #new .lastEntry .newerBox .intro time { float: right; font-family: "Source Code Pro", sans-serif; font-size: 1.5rem; margin: -10px -5px 0 0; }
+#content #new .lastEntry .newerBox .intro h1 { clear: both; font-size: 1.6rem; }
+#content #new .lastEntry .newerBox .intro h1 a { color: #68adae; }
+#content #new .lastEntry .newerBox .intro .category { float: right; font-size: 1.1rem; color: #F4632F; margin: 20px 0 10px 0; }
+#content #new .lastEntry .newerBox .intro .excerpt { clear: both; font-size: 1.4rem; }
+#content #new .lastEntry .newerBox .intro .excerpt p { line-height: 1.6; text-align: justify; }
+#content #new > p { display: block; font-family: "Source Code Pro", sans-serif; font-size: 2.0rem; }
+#content #new > p span { position: absolute; display: inline-block; left: -40px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), inset 0px 5px 30px rgba(255, 255, 255, 0.2); text-align: center; top: 22px; background: #F4632F; color: #FFFFE4; width: 150px; height: 34px; line-height: 34px; padding: 3px 10px; z-index: 2; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
+#content #new > p:before { content: ""; width: 0; height: 0; position: absolute; top: 95px; left: -22px; z-index: -1; border: 17px solid; border-color: transparent #832807 transparent transparent; }
+#content #new > p:after { content: ""; width: 0; height: 0; position: absolute; top: -22px; z-index: -1; left: 95px; border: 17px solid; border-color: transparent transparent #832807 transparent; }
+#content #new .boxAd { margin: 0 0 0 0; }
+#content #topNewer { width: 1050px; margin: 0 auto; margin: 30px 0; }
+#content #topNewer .newerPost { float: left; width: 712px; height: 980px; }
+#content #topNewer .simpleAbout { float: right; width: 338px; margin-top: -10px; }
+#content #topNewer .simpleAbout .simpleAuthor { width: 330px; height: 810px; background-color: #FFFFE4; padding: 20px 4px 10px 4px; }
+#content #topNewer .simpleAbout .simpleAuthor p { margin: 0 15px; }
+#content #topNewer .simpleAbout .simpleAuthor h1 { position: relative; background-color: #F4632F; font-size: 1.7rem; font-family: "Source Code Pro", sans-serif; color: #FFFFE4; margin: 0 0 15px -4px; padding: 7px 0 7px 20px; width: 175px; }
+#content #topNewer .simpleAbout .simpleAuthor h1:after { content: ""; position: absolute; top: 0; right: -36px; height: 0; width: 0; border: 18px solid #F4632F; border-right-color: transparent; }
+#content #topNewer .simpleAbout .simpleAuthor dt { color: #F4632F; border-bottom: 1px solid #F4632F; }
+#content #topNewer .simpleAbout .simpleAuthor dd { font-size: 1.4rem; margin: 18px 15px 0 20px; text-align: justify; }
+#content #topNewer .simpleAbout .simpleAuthor .author { margin: 30px 0 0 20px; font-family: "Source Code Pro", sans-serif; font-size: 1.9rem; color: #F4632F; }
+#content #topNewer .simpleAbout .simpleAuthor .authorImg { width: 150px; height: 150px; background-image: url(./images/profYucovin200.png); background-repeat: no-repeat; background-size: 100% auto; border: 1px solid #ff571a; margin: 20px 20px 10px 20px; float: left; }
+#content #topNewer .simpleAbout .simpleAuthor .necoImg { width: 120px; height: 120px; background-image: url(./images/profNeco300.png); background-repeat: no-repeat; background-size: 100% auto; border: 1px solid #ff571a; margin: 20px 20px 5px 20px; float: right; }
+#content #topNewer .simpleAbout .simpleAuthor .more { clear: both; font-size: 1.4rem; text-align: center; line-height: 33px; }
+#content #topNewer .simpleAbout .simpleAuthor .more a { display: block; background-color: #FFFFE4; color: #F4632F; width: 300px; height: 32px; margin: 50px auto 0 auto; border: 1px solid #F4632F; border-radius: 16px; }
+#content #topNewer .simpleAbout .simpleAuthor .more a:hover { background-color: #f9ac90; color: #FFFFE4; }
+#content .cateNew { font-size: 1.4rem; color: #FFFFE4; }
+#content .categoryBox { margin: 30px -20px 30px 0; width: 1070px; }
+#content .categoryBox .cateiPhone .ribbon { width: 290px; }
+#content .categoryBox .cateMac .ribbon { width: 220px; }
+#content .categoryBox .cateApple .ribbon { width: 100px; }
+#content .categoryBox .cateDeve .ribbon { width: 470px; }
+#content .categoryBox .cateDiary .ribbon { width: 200px; }
+#content .appeal { width: 1050px; margin: 0 auto; margin: 50px 0 30px 0; }
+#content .appeal .yucoAppeal { background-color: #b9e9e1; padding: 20px 20px 50px 20px; }
+#content .appeal .yucoAppeal h1 { font-size: 1.7rem; color: #F4632F; margin: 20px 0 15px 0; border-bottom: 1px dotted #F4632F; }
+#content .appeal .yucoAppeal p { font-size: 1.3rem; text-align: justify; }
+#content .appeal .yucoAppeal img { -webkit-transition: 0.1s ease-in-out; -moz-transition: 0.1s ease-in-out; -o-transition: 0.1s ease-in-out; -ms-transition: 0.1s ease-in-out; transition: 0.1s ease-in-out; }
+#content .appeal .yucoAppeal img:hover { -webkit-transform: scale(1.1); -moz-transform: scale(1.1); -o-transform: scale(1.1); -ms-transform: scale(1.1); transform: scale(1.1); }
+#content .appeal .yucoAppeal .wrapExtra { width: 660px; float: left; }
+#content .appeal .yucoAppeal .wrapExtra .appDojo p { float: left; width: 400px; }
+#content .appeal .yucoAppeal .wrapExtra .appDojo img { float: right; border: 1px dotted #F4632F; background-color: rgba(255, 253, 233, 0.1); border-radius: 15px; }
+#content .appeal .yucoAppeal .wrapExtra .edgeRank { margin: 50px 0 0 0; }
+#content .appeal .yucoAppeal .wrapExtra .edgeRank img { float: left; margin: 0 15px 0 10px; }
+#content .appeal .yucoAppeal .myApp { float: right; width: 300px; }
+#content .appeal .yucoAppeal .myApp img { border-radius: 15px; }
+
+/* for Archive page */
+#content .kind { width: 1050px; margin: 0 auto; margin: 0 0 40px 0; }
+#content .kind .kindOfArchive { float: left; width: 310px; font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; color: #F4632F; }
+#content .kind .kindOfArchive p { font-size: 1.4rem; padding: 0 0 0 10px; margin: 0 0 13px 0; }
+#content .kind .kindOfArchive .aRibbon { font-size: 2.0rem; padding: 11px 0 10px 12px; background-color: #FFFFE4; position: relative; }
+#content .kind .kindOfArchive .aRibbon:after { content: ""; position: absolute; top: 0; right: -36px; height: 0; width: 0; border: 23px solid #FFFFE4; border-left: 13px solid #FFFFE4; border-right-color: transparent; }
+#content .kind .ArchiveTopAd { float: right; width: 730px; height: 90px; }
+#content .boxGroup { margin: 40px -20px 0 0; width: 1070px; }
+#content .boxGroup .boxPost, #content .boxGroup .boxAd, #content .boxGroup .boxAdSmall { margin: 0 18px 60px 0; }
+
+/* for all post title page */
+.allTitle { padding: 20px; }
+.allTitle h1 { position: relative; background-color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 1.9rem; color: #FFFFE4; width: 180px; height: 40px; margin: 20px 0 20px -30px; padding-left: 20px; line-height: 40px; }
+.allTitle h1:after { content: ""; position: absolute; top: 0; right: -40px; height: 0; width: 0; border: 20px solid #F4632F; border-right-color: transparent; }
+.allTitle .ad278 { margin: 20px 0 20px -20px; }
+.allTitle h2 { margin: 60px 0 20px 0; color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 2.0rem; border-bottom: 1px dotted #F4632F; }
+.allTitle .dayTitle { margin: 15px 0; }
+.allTitle .dayTitle .miniThumbnail { width: 50px; height: 50px; float: left; overflow: hidden; margin-right: 15px; }
+.allTitle .dayTitle .date { font-family: "Source Code Pro", sans-serif; }
+
+/* entryheader for pages */
+.entryHeaderPages { position: relative; height: 180px; }
+.entryHeaderPages span { position: absolute; content: ""; top: 50px; background-color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 1.9rem; color: #FFFFE4; margin: 0 0 0 -15px; padding: 8px 0 8px 25px; }
+.entryHeaderPages span:after { content: ""; position: absolute; top: 0; right: -40px; height: 0; width: 0; border: 20px solid #F4632F; border-right-color: transparent; }
+.entryHeaderPages .category { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 20px; position: absolute; content: ""; top: 48px; right: 20px; }
+.entryHeaderPages .category:before { content: ""; position: absolute; left: -30px; top: -2px; height: 20px; width: 25px; background-image: url(./images/iconCate.png); background-repeat: no-repeat; background-size: 100% auto; }
+.entryHeaderPages .tag { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 23px; position: absolute; content: ""; top: 20px; right: 20px; }
+.entryHeaderPages .tag:before { content: ""; position: absolute; left: -40px; top: -2px; height: 23px; width: 30px; background-image: url(./images/iconTag.png); background-repeat: no-repeat; background-size: 100% auto; }
+.entryHeaderPages .lastModify { font-size: 1.4rem; font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; position: absolute; content: ""; top: 70px; right: 20px; }
+.entryHeaderPages h1 { font-size: 2.2rem; position: absolute; content: ""; top: 120px; padding: 0 30px; }
+.entryHeaderPages h1 a { color: #68adae; }
+
+/* for contact page */
+.contact_form { margin: 0 10px 0 0; padding: 20px 40px; border: 1px solid #b9b9b9; background-color: #ffffff; background-image: url(./images/graphSkyBlue.png); background-size: 20px 20px; }
+
+/* for about page */
+.pageAbout { background-color: #FFFFE4; }
+.pageAbout .entryHeader { padding: 20px; }
+.pageAbout .entryHeader .titleBox { float: left; width: 660px; padding-top: 30px; }
+.pageAbout .entryHeader .titleBox .frag { background-color: #F4632F; font-family: "Source Code Pro", sans-serif; font-size: 1.9rem; color: #FFFFE4; margin: 0 0 0 -30px; padding: 8px 0 8px 25px; position: relative; }
+.pageAbout .entryHeader .titleBox .frag:after { content: ""; position: absolute; top: 0; right: -40px; height: 0; width: 0; border: 20px solid #F4632F; border-right-color: transparent; }
+.pageAbout .entryHeader .titleBox .category { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 20px; margin: 20px 0 0 50px; position: relative; }
+.pageAbout .entryHeader .titleBox .category:before { content: ""; position: absolute; left: -35px; top: -2px; height: 20px; width: 25px; background-image: url(./images/iconCate.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .entryHeader .titleBox .tag { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 23px; margin: 10px 0 0 50px; position: relative; }
+.pageAbout .entryHeader .titleBox .tag:before { content: ""; position: absolute; left: -40px; top: -2px; height: 23px; width: 30px; background-image: url(./images/iconTag.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .entryHeader .titleBox .lastModify { font-size: 1.4rem; font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; margin: 10px 0 0 10px; }
+.pageAbout .entryHeader .titleBox h1 { font-size: 2.2rem; padding: 20px 20px; }
+.pageAbout .entryHeader .titleBox h1 a { color: #68adae; }
+.pageAbout .entryHeader .rightAd { float: right; width: 336px; height: 280px; }
+.pageAbout .centerAd { text-align: center; }
+.pageAbout .necoOffice .prof { float: left; width: 425px; margin: 0 15px 30px 15px; border: 1px solid #F4632F; padding: 20px 20px 0 20px; }
+.pageAbout .necoOffice .prof .image { float: left; width: 180px; height: 180px; margin: 0 30px 30px 0; border-radius: 50%; }
+.pageAbout .necoOffice .prof h1 { font-size: 2.0rem; margin: 10px 0 0 0; }
+.pageAbout .necoOffice .prof .name { text-align: right; font-family: "Source Code Pro", sans-serif; font-size: 1.2rem; margin: 0 0 20px 200px; color: #F4632F; border-top: 1px dotted #F4632F; }
+.pageAbout .necoOffice .prof .machine { font-family: "Source Code Pro", sans-serif; position: relative; margin: 0 0 10px 240px; text-align: left; }
+.pageAbout .necoOffice .prof .machine:before { content: ""; position: absolute; left: -35px; top: 0; height: 20px; width: 28px; background-image: url(./images/iconMachine.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .necoOffice .prof .phone { font-family: "Source Code Pro", sans-serif; position: relative; margin: 0 0 10px 240px; text-align: left; }
+.pageAbout .necoOffice .prof .phone:before { content: ""; position: absolute; left: -35px; top: 0; height: 20px; width: 28px; background-image: url(./images/iconPhone.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .necoOffice .prof .explain { clear: both; }
+.pageAbout .necoOffice .yucoImage { background-image: url(./images/aboutYuco.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .necoOffice .yucoImage:hover { background-image: url(./images/aboutYucoH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .necoOffice .necoImage { background-image: url(./images/aboutNeco.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .necoOffice .necoImage:hover { background-image: url(./images/aboutNecoH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .necoOffice .ddImage { background-image: url(./images/aboutDD.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .necoOffice .ddImage:hover { background-image: url(./images/aboutDDH.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .necoOffice .office { clear: both; border-radius: 30px; border: 3px double #92DDD0; padding: 20px 20px 0 20px; }
+.pageAbout .necoOffice .office img { margin: 0 20px 20px 0; float: left; }
+.pageAbout .necoOffice .office h1 { font-size: 2.0rem; margin: 10px 0 0 300px; text-align: right; border-bottom: 1px dotted #92DDD0; }
+.pageAbout .followMeSet { margin-left: 250px; margin-bottom: 30px; }
+.pageAbout .tailSet { margin-left: 50px; }
+.pageAbout .tailSet .setItem { float: left; margin: 0 20px 0 0; }
+.pageAbout .tailSet .setItem .fb-page { border: 1px solid #92DDD0; }
+.pageAbout .entryFooter { padding: 20px; }
+.pageAbout .entryFooter .category { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 20px; margin: 20px 0 0 50px; position: relative; }
+.pageAbout .entryFooter .category:before { content: ""; position: absolute; left: -35px; top: -2px; height: 20px; width: 25px; background-image: url(./images/iconCate.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .entryFooter .tag { font-size: 1.3rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; line-height: 23px; margin: 10px 0 0 50px; position: relative; }
+.pageAbout .entryFooter .tag:before { content: ""; position: absolute; left: -40px; top: -2px; height: 23px; width: 30px; background-image: url(./images/iconTag.png); background-repeat: no-repeat; background-size: 100% auto; }
+.pageAbout .entryFooter .lastModify { font-size: 1.4rem; font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; margin: 10px 0 0 10px; }
+
+#freeView { background-color: #F9F8CD; min-width: 1070px; }
+#freeView #speck { width: 1050px; margin: 0 auto; height: 360px; padding: 40px 0; }
+#freeView #speck h1 { position: relative; background-color: #F4632F; font-size: 1.6rem; font-family: "Source Code Pro", sans-serif; color: #FFFFE4; margin: 0 0 15px 30px; line-height: 30px; width: 100px; /* 仮の数字 */ height: 30px; }
+#freeView #speck h1:before { content: ""; position: absolute; top: 0; left: -30px; height: 0; width: 0; border: 15px solid #F4632F; border-left-color: transparent; }
+#freeView #speck h1:after { content: ""; position: absolute; top: 0; right: -30px; height: 0; width: 0; border: 15px solid #F4632F; border-right-color: transparent; }
+#freeView #speck .wrapFreeLeft { float: left; width: 350px; height: 350px; margin: 0 20px 0 0; }
+#freeView #speck .wrapFreeLeft p { font-size: 1.2rem; line-height: 1.4; text-align: justify; margin: 0 0 10px 0; }
+#freeView #speck .pinterest h1 { width: 93px; }
+#freeView #speck .instagram { margin: 20px 0 0 0; /* インスタグラムフォローボタンのcss */ }
+#freeView #speck .instagram h1 { width: 95px; }
+#freeView #speck .instagram .ig-b- { display: inline-block; }
+#freeView #speck .instagram .ig-b- img { visibility: hidden; }
+#freeView #speck .instagram .ig-b-:hover { background-position: 0 -60px; }
+#freeView #speck .instagram .ig-b-:active { background-position: 0 -120px; }
+#freeView #speck .instagram .ig-b-v-24 { width: 137px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24.png) no-repeat 0 0; }
+#freeView #speck .wrapMini { float: right; width: 670px; }
+#freeView #speck .equipment { font-size: 1.3rem; font-family: "Source Code Pro", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; margin: 0 0 30px 0; -webkit-column-count: 2; -webkit-column-gap: 10px; -moz-column-count: 2; -moz-column-gap: 10px; -o-column-count: 2; -o-column-gap: 10px; -ms-column-count: 2; -ms-column-gap: 10px; column-count: 2; column-gap: 10px; }
+#freeView #speck .equipment h1 { width: 220px; }
+#freeView #speck .equipment h2 { font-size: 1.5rem; margin: 20px 0 0 0; }
+#freeView #speck .equipment li { font-size: 1.3rem; }
+#freeView #speck .equipment .once il { font-size: 0.9rem; }
+
+#footer { background-color: #F4632F; min-width: 1070px; padding: 15px 0; }
+#footer #copyright { width: 1050px; margin: 0 auto; margin: 0 auto; text-align: center; color: #e0f5f2; }
+#footer #copyright a { color: #FFFFE4; }
+#footer #copyright a:hover { color: #6f3712; }
+
+/* to page top button */
+#toPageTop { width: 90px; height: 90px; border-radius: 50%; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); background-color: #c8e1ff; position: fixed; right: 30px; bottom: 30px; display: none; opacity: 0.5; }
+#toPageTop:hover { opacity: 1; }
+#toPageTop #moveTo { display: block; margin: 5px 5px 5px 3px; width: 82px; height: 80px; background-image: url(./images/toPageTop.png); background-repeat: no-repeat; background-size: 100% auto; cursor: n-resize; opacity: 0.8; }
+#toPageTop #moveTo:hover { opacity: 1; }
+
+/* googleカスタム検索 */
+#cse { /* 最初のlodingのため*/ line-height: 32px; font-size: 1.5rem; color: #92DDD0; margin: 0 0 0 3px; }
+
+/* 検索窓の外 */
+.cse .gsc-control-cse, .gsc-control-cse { padding: 0 !important; width: auto; font-family: "Trebuchet MS", sans-serif; background-color: transparent !important; border: none !important; }
+
+/* 窓と検索ボタンの間 */
+.cse table.gsc-search-box td.gsc-input, table.gsc-search-box td.gsc-input { padding-right: 6px !important; }
+
+/* Search input field */
+.cse input.gsc-input, input.gsc-input { font-family: inherit; font-size: 14px !important; border: none !important; background-color: transparent !important; padding: 0 6px !important; height: 32px; border-radius: 16px !important; }
+
+/* Search button */
+.cse input.gsc-search-button, input.gsc-search-button { padding: 0; min-width: 20px !important; margin: 0 !important; cursor: pointer; width: 20px !important; height: 25px !important; border: none !important; background-color: transparent !important; background-image: url(./images/search.png); background-repeat: no-repeat; background-size: 100% auto; text-indent: 999px; overflow: hidden; }
+.cse input.gsc-search-button:hover, input.gsc-search-button:hover { background-image: url(./images/searchH.png); background-repeat: no-repeat; background-size: 100% auto; }
+
+/* for single 前後post navi */
+.postNav { width: 730px; font-size: 13px; /* margin: 0 0 40px 0; */ }
+.postNav .prePost a { width: 300px; height: 40px; color: #FFFFE4; overflow: hidden; float: left; background-image: url(./images/postNew.png); background-repeat: no-repeat; background-size: auto 72px; background-position: left 10px; padding: 70px 0 0 50px; }
+.postNav .prePost a:hover { background-image: url(./images/postNewH.png); background-repeat: no-repeat; background-size: auto 72px; background-position: left 10px; color: #F4632F; }
+.postNav .nextPost a { width: 300px; height: 40px; color: #FFFFE4; overflow: hidden; float: right; text-align: right; background-image: url(./images/postOld.png); background-repeat: no-repeat; background-size: auto 72px; background-position: right 10px; padding: 70px 50px 0 0; }
+.postNav .nextPost a:hover { background-image: url(./images/postOldH.png); background-repeat: no-repeat; background-size: auto 72px; background-position: right 10px; color: #F4632F; }
+
+/* for archive pagination */
+.pagination { clear: both; font-size: 1.4rem; text-align: center; font-family: "Source Code Pro", sans-serif; margin: 20px 0; height: 30px; line-height: 28px; }
+.pagination a { display: inline-block; width: 28px; height: 28px; background-color: #FFFFE4; border: 1px solid #F4632F; border-radius: 50%; margin: 0 2px; }
+.pagination a:hover { box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.7); }
+.pagination .current { display: inline-block; width: 28px; height: 28px; border: 1px solid #F4632F; border-radius: 50%; margin: 0 2px; background-color: #f9ac90; color: #FFFFE4; }
+.pagination .pages { display: inline-block; padding-left: 8px; padding-right: 8px; height: 28px; border: 1px solid #6f3712; border-radius: 15px; margin: 0 2px; }
+
+.entryBody { clear: both; padding: 0 22px 0 30px; text-align: justify; position: relative; z-index: 0; }
+.entryBody h2 { font-size: 1.9rem; font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "メイリオ", Meiryo, sans-serif; color: #FFFFE4; margin: 90px -22px 30px -20px; padding: 4px 15px 4px 40px; background-color: #F4632F; border-radius: 22px 0 0 22px; line-height: 1.6; position: relative; }
+.entryBody h2:before { position: absolute; content: ""; top: 50%; margin-top: -8px; left: 10px; height: 16px; width: 16px; background-color: #FFFFE4; border-radius: 50%; box-shadow: 1px 1px 1px #777 inset; }
+.entryBody h3 { font-size: 1.8rem; color: #F4632F; margin: 60px 0 15px 0; padding: 0 0 0 10px; border-bottom: 1px dotted #F4632F; position: relative; }
+.entryBody h3:before { position: absolute; content: ""; top: 0; left: -5px; height: 10px; width: 10px; background-color: #f9ac90; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+.entryBody h3:after { position: absolute; content: ""; top: 15px; left: -10px; height: 8px; width: 8px; background-color: #F4632F; -webkit-transform: rotate(15deg); -moz-transform: rotate(15deg); -o-transform: rotate(15deg); -ms-transform: rotate(15deg); transform: rotate(15deg); }
+.entryBody h4 { margin: 3rem 0 1rem 0; border-left: 10px solid #92DDD0; padding-left: 1em; border-radius: 5px 0 0 5px; }
+.entryBody ul { margin: 20px; }
+.entryBody ul li { font-weight: bold; }
+.entryBody p { margin: 30px 0; }
+.entryBody .komoji { font-size: 80%; }
+.entryBody th { background-color: #f9ac90; color: #FFFFE4; text-align: left; font-size: 95%; padding: 10px; border-style: solid; border-width: 1px; border-color: #F4632F; }
+.entryBody td { padding: 10px; font-size: 100%; border-style: solid; border-width: 1px; border-color: #fcd0c0; }
+.entryBody .kanwa { width: 550px; height: 89px; margin: 10px auto; /* @include bgiPng(horizon2); */ }
+.entryBody blockquote { color: #206176; margin: 0 10px 0 0; padding: 20px 40px 10px 40px; border: 1px solid #b9b9b9; background-color: #ffffff; background-image: url(./images/graphSkyBlue.png); background-size: 20px 20px; position: relative; z-index: auto; }
+.entryBody blockquote:before { position: absolute; content: ""; width: 300px; height: 40px; right: 10px; bottom: 15px; box-shadow: 0 15px 10px #777; -webkit-transform: rotate(4deg); -moz-transform: rotate(4deg); -o-transform: rotate(4deg); -ms-transform: rotate(4deg); transform: rotate(4deg); z-index: -1; }
+.entryBody blockquote .from { font-style: italic; margin: 20px; text-align: right; font-size: 90%; }
+.entryBody .applink { margin: 0 10px 0 0; padding: 30px 20px 10px 20px; border: 1px solid #b9b9b9; background-color: #ffffff; background-image: url(./images/graphSkyBlue.png); background-size: 20px 20px; position: relative; z-index: auto; }
+.entryBody .applink:before { position: absolute; content: ""; width: 300px; height: 40px; right: 10px; bottom: 15px; box-shadow: 0 15px 10px #777; -webkit-transform: rotate(4deg); -moz-transform: rotate(4deg); -o-transform: rotate(4deg); -ms-transform: rotate(4deg); transform: rotate(4deg); z-index: -1; }
+.entryBody .applink .appCheck { margin: 10px 0; width: 280px; height: 63px; border-radius: 10px; border: 1px solid #92DDD0; background-color: rgba(246, 247, 195, 0.5); background-image: url(./images/appCheck.png); background-repeat: no-repeat; background-size: 100% auto; }
+.entryBody .applink .appCheck:hover { background-image: url(./images/appCheckH.png); background-repeat: no-repeat; background-size: 100% auto; background-color: rgba(243, 207, 162, 0.5); }
+
+/* AmazonJS */
+.amazonjs_item { background-color: #fffff4 !important; }
+
+/* for smartPhone MW Theme Switcher on Multi Device Switcher */
+.renderSwitcher { width: 1000px; margin: 40px auto; }
+.renderSwitcher .pc { display: none; }
+.renderSwitcher .mobile a { display: block; font-size: 3em; width: 80%; padding: 10px 0; margin: 0 auto; text-align: center; background-color: #FFFFE4; color: #F4632F; border: 1px solid #F4632F; border-radius: 50px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); }
+.renderSwitcher .mobile a:hover { color: #92DDD0; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7) inset; }
+
+.pc-switcher { display: none; }
+
+/* 以下投稿共通 */
+/* Alignment画像の配置CSSをWordPressの指定と合わせる */
+.alignnone { margin-left: 1.5em; margin-bottom: 1.5em; }
+
+.alignleft { display: inline; float: left; margin-right: 1.5em; margin-bottom: 1.5em; }
+
+.alignright { display: inline; float: right; margin-left: 1.5em; margin-bottom: 1.5em; }
+
+.aligncenter { clear: both; display: block; margin-left: auto; margin-right: auto; margin-bottom: 1.5em; }
+
+img.size-full, img.size-large { max-width: 97.5%; width: auto; height: auto; }
+
+img.alignleft, ima.alignright, ima.aligncenter { margin-bottom: 1.5em; }
+
+/* Captionキャプション付き画像のCSSをWordPressの指定と合わせる */
+p img, .wp-caption { margin-top: 0.4em; text-align: center; }
+
+.wp-caption { background-color: #eee; margin-bottom: 1.5em; padding: 5px 0; }
+
+.wp-caption img { display: block; margin: 0 auto; }
+
+.wp-caption .wp-caption-text { font-size: 92.3%; margin: 0; padding: 5px 5px 0 5px; }
+
+/*# sourceMappingURL=style.css.map */
