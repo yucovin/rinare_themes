@@ -1,1 +1,0 @@
-# rinare.com WordPress themes
